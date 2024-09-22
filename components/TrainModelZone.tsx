@@ -74,15 +74,15 @@ export default function TrainModelZone() {
         });
       }
 
-      // check that in total images do not exceed a combined 4.5MB
+      // check that in total images do not exceed a combined 10MB
       const totalSize = files.reduce((acc, file) => acc + file.size, 0);
       const newSize = newFiles.reduce((acc, file) => acc + file.size, 0);
 
-      if (totalSize + newSize > 4.5 * 1024 * 1024) {
+      if (totalSize + newSize > 10 * 1024 * 1024) {
         toast({
           title: "Images exceed size limit",
           description:
-            "The total combined size of the images cannot exceed 4.5MB.",
+            "The total combined size of the images cannot exceed 10MB.",
           duration: 5000,
         });
         return;
@@ -163,9 +163,9 @@ export default function TrainModelZone() {
     }
 
     toast({
-      title: "Model queued for training",
+      title: "Your Model is queued for training, Hang Tight!",
       description:
-        "The model was queued for training. You will receive an email when the model is ready to use.",
+        "The AI Model was queued for training. You will receive an email when your headshots are ready after training.",
       duration: 5000,
     });
 
@@ -213,7 +213,7 @@ export default function TrainModelZone() {
           <div className="flex flex-col gap-4">
             <FormLabel>Type</FormLabel>
             <FormDescription>
-              Select the type of headshots you want to generate.
+              Choose the type of headshots you want to generate.
             </FormDescription>
             <RadioGroup
               defaultValue={modelType}
