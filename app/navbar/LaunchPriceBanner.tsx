@@ -33,7 +33,7 @@ const LaunchPriceBanner = () => {
             >
               <span className="font-bold text-indigo-500 text-lg">$10.99</span>
             </div>
-            <span className="absolute left-0 top-0 line-through text-indigo-400 text-lg font-semibold">$19</span>
+            <span className="absolute left-[-15px] top-0 line-through text-indigo-400 text-lg font-semibold">$21.99</span>
           </div>
           <span className="text-indigo-400 text-xs ml-1 font-semibold">/ month</span>
         </div>  
