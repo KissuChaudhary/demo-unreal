@@ -7,33 +7,35 @@ import { Check, Star } from "lucide-react";
 const pricingOptions = [
   {
     title: "Starter",
-    price: "$4.99",
+    price: "$5.49",
     features: [
-      "04 headshots",
-      "120 min turnaround time"
+      "01 Credit",
+      "06 headshots",
+      "90 min turnaround time"
     ],
     popular: false,
     bestValue: false
   },
   {
     title: "Basic",
-    price: "$23.99",
-    originalPrice: "$26.99",
-    discount: "-10%",
+    price: "$19.49",
+    originalPrice: "$21.99",
+    discount: "-12%",
     features: [
-      "20 headshots",
-      "3+ different styles",
-      "120 min turnaround time"
+      "04 Credits",
+      "24 headshots",
+      "90 min turnaround time"
     ],
     popular: true,
     bestValue: false
   },
   {
     title: "Premium",
-    price: "$45.99",
+    price: "$45.49",
+    originalPrice: "$49.49",
     features: [
-      "45 headshots",
-      "5+ different styles",
+      "09 Credits",
+      "54 headshots",
       "120 min turnaround time"
     ],
     popular: false,
