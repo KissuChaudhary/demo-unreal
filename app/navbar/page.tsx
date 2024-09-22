@@ -85,6 +85,15 @@ export default async function Navbar() {
             <ClientSideCredits creditsRow={credits ? credits : null} />
           )}
           <DropdownMenu>
+            {stripeIsConfigured && (
+            <Link href="/get-credits">
+              <Button
+                variant={"ghost"}
+                className="w-full text-left font-medium">
+                Get Credits
+              </Button>
+            </Link>
+          )}
             <DropdownMenuTrigger asChild className="cursor-pointer">
               <AvatarIcon height={24} width={24} className="text-primary" />
             </DropdownMenuTrigger>
