@@ -85,7 +85,12 @@ export default async function Navbar() {
             <ClientSideCredits creditsRow={credits ? credits : null} />
           )}
           <DropdownMenu>
-            {stripeIsConfigured && (
+           
+            <DropdownMenuTrigger asChild className="cursor-pointer">
+              <AvatarIcon height={24} width={24} className="text-primary" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+               {stripeIsConfigured && (
             <Link href="/get-credits">
               <Button
                 variant={"ghost"}
@@ -94,10 +99,6 @@ export default async function Navbar() {
               </Button>
             </Link>
           )}
-            <DropdownMenuTrigger asChild className="cursor-pointer">
-              <AvatarIcon height={24} width={24} className="text-primary" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
               <DropdownMenuLabel className="text-primary text-center overflow-hidden text-ellipsis">
                 {user.email}
               </DropdownMenuLabel>
