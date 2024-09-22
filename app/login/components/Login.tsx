@@ -98,104 +98,96 @@ export const Login = ({
     );
   }
 
-  return (
-    <>
-      <div className="flex items-center justify-center p-8">
-        <div className="flex flex-col gap-4 bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 shadow-sm p-4 rounded-xl max-w-sm w-full">
+ return (
+  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-950 p-4">
+    <div className="w-full max-w-md">
+      <div className="bg-white dark:bg-gray-800 shadow-2xl rounded-2xl overflow-hidden transform transition-all hover:scale-105 duration-300">
+        <div className="p-8">
           <div className="text-center">
-            <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
-              Welcome
+            <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
+              Welcome Back
             </h1>
-            <p className="mt-2 text-sm text-gray-600 dark:text-neutral-400">
+            <p className="text-sm text-gray-600 dark:text-gray-300">
               Don't have an account yet?{" "}
               <a
                 href="#"
-                className="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
+                className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-300 font-medium"
               >
-                Sign up below!
+                Sign up here
               </a>
             </p>
           </div>
 
-          <div className="mt-5">
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col gap-4"
-            >
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm mb-2 dark:text-white"
-                >
-                  Email address
-                </label>
-                <div className="relative">
-                  <Input
-                    type="email"
-                    placeholder="Email"
-                    className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                    {...register("email", {
-                      required: true,
-                      validate: {
-                        emailIsValid: (value: string) =>
-                          /^[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
-                            value
-                          ) || "Please enter a valid email",
-                        emailDoesntHavePlus: (value: string) =>
-                          /^[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
-                            value
-                          ) || "Email addresses with a '+' are not allowed",
-                        emailIsntDisposable: (value: string) =>
-                          !disposableDomains.includes(value.split("@")[1]) ||
-                          "Please use a permanent email address",
-                      },
-                    })}
-                  />
-                  {isSubmitted && errors.email && (
-                    <span className="text-xs text-red-400">
-                      {errors.email?.message || "Email is required to sign in"}
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              <Button
-                isLoading={isSubmitting}
-                disabled={isSubmitting}
-                variant="outline"
-                className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium 
-                rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 hover:text-white 
-                focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-                type="submit"
+          <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6">
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
               >
-                Continue with Email
-              </Button>
-            </form>
-
-            <div className="flex items-center p-4 mt-4">
-              <p className="text-sm text-gray-600 dark:text-neutral-400">
-                By signing up, you agree to our{" "}
-                <a
-                  href="#"
-                  className="underline text-blue-600 dark:text-blue-500"
-                >
-                  Terms of Service
-                </a>{" "}
-                and{" "}
-                <a
-                  href="#"
-                  className="underline text-blue-600 dark:text-blue-500"
-                >
-                  Privacy Policy
-                </a>
-                .
-              </p>
+                Email address
+              </label>
+              <div className="relative">
+                <Input
+                  type="email"
+                  placeholder="you@example.com"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"
+                  {...register("email", {
+                    required: true,
+                    validate: {
+                      emailIsValid: (value: string) =>
+                        /^[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value) ||
+                        "Please enter a valid email",
+                      emailDoesntHavePlus: (value: string) =>
+                        /^[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value) ||
+                        "Email addresses with a '+' are not allowed",
+                      emailIsntDisposable: (value: string) =>
+                        !disposableDomains.includes(value.split("@")[1]) ||
+                        "Please use a permanent email address",
+                    },
+                  })}
+                />
+                {isSubmitted && errors.email && (
+                  <p className="mt-2 text-sm text-red-600 dark:text-red-400">
+                    {errors.email?.message || "Email is required to sign in"}
+                  </p>
+                )}
+              </div>
             </div>
-          </div>
+
+            <Button
+              isLoading={isSubmitting}
+              disabled={isSubmitting}
+              className="w-full py-3 px-4 text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              type="submit"
+            >
+              {isSubmitting ? "Signing In..." : "Continue with Email"}
+            </Button>
+          </form>
+        </div>
+
+        <div className="px-8 py-4 bg-gray-50 dark:bg-gray-700 border-t border-gray-200 dark:border-gray-600">
+          <p className="text-xs text-center text-gray-600 dark:text-gray-300">
+            By signing up, you agree to our{" "}
+            <a
+              href="https://www.unrealshot.com/terms"
+              className="underline text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-300"
+            >
+              Terms of Service
+            </a>{" "}
+            and{" "}
+            <a
+              href="https://www.unrealshot.com/privacy-policy"
+              className="underline text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-300"
+            >
+              Privacy Policy
+            </a>
+            .
+          </p>
         </div>
       </div>
-    </>
-  );
+    </div>
+  </div>
+);
 };
 
 // export const OR = () => {
