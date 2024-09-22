@@ -62,7 +62,7 @@ export default function ClientSideModelsList({
   };
 
  return (
-  <div id="train-model-container" className="w-full max-w-3xl mx-auto px-4 py-16">
+  <div id="train-model-container" className="w-full mx-auto px-4 py-16">
     {models && models.length > 0 && (
       <div className="flex flex-col gap-6">
         <div className="flex flex-row gap-4 w-full justify-between items-center">
@@ -78,6 +78,7 @@ export default function ClientSideModelsList({
       </div>
     )}
     {models && models.length === 0 && (
+    <div className="w-full max-w-3xl mx-auto px-4 py-16">
       <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-8 text-center">
         <div className="bg-indigo-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
           <svg className="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -96,6 +97,7 @@ export default function ClientSideModelsList({
           </Button>
         </Link>
       </div>
+       </div>
     )}
   </div>
 );
