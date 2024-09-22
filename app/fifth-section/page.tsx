@@ -55,8 +55,8 @@ const faqData: FAQItem[] = [
     answer: "Once you submit your request, Unrealshot AI typically generates your headshot within a 20-30 minutes, depending on server load. You will receive an Email once it's ready."
   },
   {
-    question: "What if I’m not satisfied with the results?  ",
-    answer: "If you’re not happy with your headshot, you can retry with different preferences or contact our support team for assistance."
+    question: "What if I'm not satisfied with the results?  ",
+    answer: "If you're not happy with your headshot, you can retry with different preferences or contact our support team for assistance."
   }
 ];
 
@@ -82,6 +82,14 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onToggle })
       </div>
     )}
   </div>
+);
+
+const BurgerIcon = () => (
+  <svg className="w-8 h-8 text-yellow-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 14H21V16C21 17.1046 20.1046 18 19 18H5C3.89543 18 3 17.1046 3 16V14Z" fill="currentColor" />
+    <path d="M3 11H21V12H3V11Z" fill="currentColor" />
+    <path d="M3 8C3 6.89543 3.89543 6 5 6H19C20.1046 6 21 6.89543 21 8V9H3V8Z" fill="currentColor" />
+  </svg>
 );
 
 const FAQSection: React.FC = () => {
@@ -128,44 +136,53 @@ const FAQSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="py-24 px-2 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="rounded-3xl p-8 lg:p-12 shadow-2xl flex flex-col lg:flex-row items-center justify-between">
-          <div className="mb-12 lg:mb-0 lg:mr-12 lg:w-1/2">
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-dark mb-6 leading-tight">
-              Elevate Your <span className="text-indigo-800">Professional Image</span>
-            </h2>
-            <p className="text-xl mb-8">
-              AI-powered headshots crafted for success in the modern business world
-            </p>
-            <div className="flex items-center mb-10">
-              <Camera className="w-6 h-6 mr-3" />
-              <span className="text-md font-semibold">Premium quality starting at just $4.99</span>
+      <div className="relative py-24 px-2 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="rounded-3xl p-8 lg:p-12 shadow-2xl flex flex-col lg:flex-row items-center justify-between bg-gradient-to-br from-white to-gray-100">
+            <div className="mb-12 lg:mb-0 lg:mr-12 lg:w-1/2 relative z-10">
+              <h2 className="text-4xl lg:text-5xl font-extrabold text-dark mb-6 leading-tight">
+                Elevate Your <span className="text-indigo-800">Professional Image</span>
+              </h2>
+              <p className="text-xl mb-8">
+                AI-powered headshots crafted for success in the modern business world
+              </p>
+              <div className="flex items-center mb-6">
+                <BurgerIcon />
+                <span className="text-md font-semibold ml-3">Premium quality at the price of a burger</span>
+              </div>
+              <div className="flex items-center mb-10">
+                <Camera className="w-6 h-6 mr-3 text-indigo-600" />
+                <span className="text-md font-semibold">Starting at just $5.49 for 6 headshots</span>
+              </div>
+              <a href="/login" className="inline-flex items-center justify-center bg-indigo-800 text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:bg-indigo-700 transition-all duration-300 group">
+                Get Your AI Headshot
+                <Sparkles className="ml-2 group-hover:rotate-12 transition-transform duration-300" />
+              </a>
             </div>
-            <a href="/login" className="inline-flex items-center justify-center text-indigo-800 text-dark font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all duration-300 group">
-              Get Your AI Headshot
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
-          </div>
-          <div className="w-full lg:w-1/2 flex justify-center items-center">
-            <div className="relative w-80 h-80">
-              {/* Top image */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-40 rounded-full overflow-hidden border-4 border-black shadow-xl">
-                <img src="/content/headshot14.webp" alt="AI Headshot Example 1" className="object-cover w-full h-full" />
-              </div>
-              {/* Bottom left image */}
-              <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full overflow-hidden border-4 border-black shadow-xl">
-                <img src="/content/headshot15.webp" alt="AI Headshot Example 2" className="object-cover w-full h-full" />
-              </div>
-              {/* Bottom right image */}
-              <div className="absolute bottom-0 right-0 w-40 h-40 rounded-full overflow-hidden border-4 border-black shadow-xl">
-                <img src="/content/headshot16.webp" alt="AI Headshot Example 3" className="object-cover w-full h-full" />
+            <div className="w-full lg:w-1/2 flex justify-center items-center relative">
+              <div className="relative w-80 h-80">
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                  <img src="/content/headshot14.webp" alt="AI Headshot Example 1" className="object-cover w-full h-full" />
+                </div>
+                <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                  <img src="/content/headshot15.webp" alt="AI Headshot Example 2" className="object-cover w-full h-full" />
+                </div>
+                <div className="absolute bottom-0 right-0 w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                  <img src="/content/headshot16.webp" alt="AI Headshot Example 3" className="object-cover w-full h-full" />
+                </div>
               </div>
             </div>
           </div>
         </div>
+        
+        {/* Floating UI elements */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+          <BurgerIcon className="absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 animate-float hidden lg:block" />
+          <BurgerIcon className="absolute bottom-1/4 right-1/4 transform translate-x-1/2 translate-y-1/2 animate-float-delay hidden lg:block" />
+          <div className="absolute top-1/2 left-1/3 w-12 h-12 bg-yellow-300 rounded-full opacity-50 animate-pulse hidden lg:block"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-16 h-16 bg-indigo-400 rounded-full opacity-30 animate-pulse-delay hidden lg:block"></div>
+        </div>
       </div>
-    </div>
     </>
   );
 };
