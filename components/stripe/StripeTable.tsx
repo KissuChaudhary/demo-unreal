@@ -165,7 +165,7 @@ const StripePricingTable = ({ user }: Props) => {
         id="razorpay-checkout-js"
         src="https://checkout.razorpay.com/v1/checkout.js"
       />
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-8">
+      <div className="grid grid-cols-1 px-4 gap-4 sm:grid-cols-3 md:gap-8">
         {Object.keys(plans).map((planKey) => {
           const plan = plans[planKey as PlanType];
           return (
@@ -228,7 +228,7 @@ const StripePricingTable = ({ user }: Props) => {
                   </span>
                 </li>
               </ul>
-
+{/*
               <a
                 className="mt-8 block rounded-full border transition-all cursor-pointer px-12 py-3 text-center text-sm font-medium border-none bg-[#6861ff] text-white hover:bg-[#5b54e0] hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5750d6]"
                 onClick={() => onSubscribe(planKey as PlanType)}
@@ -240,7 +240,7 @@ const StripePricingTable = ({ user }: Props) => {
                   {!scriptLoading[planKey as PlanType] && "Pay With Stripe"}
                 </span>
               </a>
-
+*/}
               {paypalScriptLoaded && (
                 <PayPalButton price={plan.price.toString()} />
               )}
