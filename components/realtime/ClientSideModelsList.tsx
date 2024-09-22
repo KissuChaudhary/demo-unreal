@@ -79,19 +79,19 @@ export default function ClientSideModelsList({
     )}
     {models && models.length === 0 && (
       <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-8 text-center">
-        <div className="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-          <svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <div className="bg-indigo-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg className="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
         </div>
         <h2 className="text-2xl font-semibold text-gray-800 mb-3">
-          Get Started with Your First Model
+          Create Best Version of You!
         </h2>
         <p className="text-gray-600 mb-8 max-w-md mx-auto">
-          Train your first AI model and unlock the power of custom image generation. It's quick, easy, and opens up a world of creative possibilities!
+          Train your own AI model to generate custom headshots with ease. It's fast, simple, and tailored just for you!
         </p>
         <Link href="/overview/models/train">
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition duration-150 ease-in-out">
+          <Button size="lg" className="bg-indigo-800 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-md transition duration-150 ease-in-out">
             Train Your First Model
           </Button>
         </Link>
