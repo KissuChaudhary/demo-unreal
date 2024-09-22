@@ -14,7 +14,7 @@ const LaunchPriceBanner = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center">
-          <span className="font-bold text-indigo-600 mr-2">30% off Basic Plan - Launch Price!</span>
+          <span className="font-bold text-indigo-600 mr-2">🤩30% off Basic Plan - Launch Price🤩</span>
         </div>
         <div className="mt-1 relative">
           <div className="inline-block relative" style={{ width: '40px' }}>
