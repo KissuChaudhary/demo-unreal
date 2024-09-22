@@ -18,7 +18,7 @@ import { Button } from "../../components/ui/button";
 import { Database } from "@/types/supabase";
 import ClientSideCredits from "../../components/realtime/ClientSideCredits";
 import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar";
-import { User, CreditCard, LogOut } from "lucide-react";
+import { User, CreditCard, LogOut, Home, LayoutDashboard } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -49,15 +49,25 @@ export default async function Navbar() {
           <Logo />
         </Link>
 
-        {/* Rendered navbar when user is logged in */}
+        {/* Navigation buttons for logged-in users */}
         {user && (
           <div className="hidden lg:flex flex-row gap-2">
+            <Link href="/">
+              <Button
+                variant={"ghost"}
+                className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-md transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 font-medium"
+              >
+                <Home className="mr-2 h-4 w-4" />
+                Home
+              </Button>
+            </Link>
             <Link href="/overview">
               <Button
                 variant={"ghost"}
                 className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-md transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 font-medium"
               >
-                Home
+                <LayoutDashboard className="mr-2 h-4 w-4" />
+                Dashboard
               </Button>
             </Link>
             {stripeIsConfigured && (
@@ -66,6 +76,7 @@ export default async function Navbar() {
                   variant={"ghost"}
                   className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-md transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 font-medium"
                 >
+                  <CreditCard className="mr-2 h-4 w-4" />
                   Get Credits
                 </Button>
               </Link>
@@ -81,7 +92,7 @@ export default async function Navbar() {
           </>
         )}
 
-        {/* Rendered navbar when user is logged in */}
+        {/* User menu for logged-in users */}
         {user && (
           <div className="flex flex-row gap-4 items-center">
             {stripeIsConfigured && (
@@ -111,6 +122,12 @@ export default async function Navbar() {
                     <User className="mr-2 h-4 w-4" />
                     <span>Profile</span>
                   </DropdownMenuItem>
+                  <Link href="/overview">
+                    <DropdownMenuItem>
+                      <LayoutDashboard className="mr-2 h-4 w-4" />
+                      <span>Dashboard</span>
+                    </DropdownMenuItem>
+                  </Link>
                   {stripeIsConfigured && (
                     <Link href="/get-credits">
                       <DropdownMenuItem>
