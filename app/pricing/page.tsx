@@ -18,9 +18,9 @@ const pricingOptions = [
   },
   {
     title: "Basic",
-    price: "$19.49",
+    price: "$15.49",
     originalPrice: "$21.99",
-    discount: "-12%",
+    discount: "-30% Launch Price",
     features: [
       "04 Credits",
       "24 headshots",
