@@ -61,12 +61,12 @@ export default function ClientSideModelsList({
     setModels([]);
   };
 
-  return (
-  <div id="train-model-container" className="w-full max-w-4xl mx-auto px-4 py-8">
+ return (
+  <div id="train-model-container" className="w-full max-w-3xl mx-auto px-4 py-16">
     {models && models.length > 0 && (
       <div className="flex flex-col gap-6">
-        <div className="flex flex-row gap-4 w-full justify-between items-center text-center">
-          <h1 className="text-2xl font-bold text-gray-800">Your Models</h1>
+        <div className="flex flex-row gap-4 w-full justify-between items-center">
+          <h1 className="text-2xl font-semibold text-gray-800">Your Models</h1>
           <div className="flex gap-2">
             <ClearModels onClear={handleDeleteModels} />
             <Link href="/overview/models/train" className="w-fit">
@@ -78,19 +78,20 @@ export default function ClientSideModelsList({
       </div>
     )}
     {models && models.length === 0 && (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] bg-gradient-to-b from-blue-50 to-white rounded-lg shadow-lg p-8">
-        <div className="bg-blue-100 p-6 rounded-full mb-6">
-          <FaImages size={64} className="text-blue-500" />
+      <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-8 text-center">
+        <div className="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
         </div>
-        <h1 className="text-3xl font-bold text-gray-800 mb-4 text-center">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-3">
           Get Started with Your First Model
-        </h1>
-        <p className="text-gray-600 mb-8 text-center max-w-md">
+        </h2>
+        <p className="text-gray-600 mb-8 max-w-md mx-auto">
           Train your first AI model and unlock the power of custom image generation. It's quick, easy, and opens up a world of creative possibilities!
         </p>
         <Link href="/overview/models/train">
-          <Button size={"lg"} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center">
-            <FaRocket className="mr-2" />
+          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition duration-150 ease-in-out">
             Train Your First Model
           </Button>
         </Link>
