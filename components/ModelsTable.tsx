@@ -48,7 +48,7 @@ export default function ModelsTable({ models }: ModelsTableProps) {
               <TableCell className="py-4 px-4">
                 <div className="flex items-center space-x-2">
                   <Badge 
-                    variant={model.status === "processing" ? "secondary" : "success"}
+                    variant={model.status === "processing" ? "secondary" : "default"}
                     className={`px-2 py-1 text-xs font-medium ${
                       model.status === "processing" ? "bg-yellow-100 text-yellow-800" : "bg-green-100 text-green-800"
                     }`}
