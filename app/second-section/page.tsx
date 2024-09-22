@@ -97,7 +97,7 @@ const ComparisonPage = () => {
         <TrustpilotRating />
 
         <h2 className="text-4xl font-bold text-center text-indigo-900 mb-4">
-          From Casual Snapshots to Professional Headshots
+          From Casual Snap shots to Pro Headshots
         </h2>
 
         <p className="text-center text-center text-gray-600 mb-8 font-semibold max-w-3xl mx-auto text-gray-600 mb-8 max-w-3xl mx-auto">
