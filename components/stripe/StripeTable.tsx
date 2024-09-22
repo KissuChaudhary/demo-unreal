@@ -183,7 +183,7 @@ const StripePricingTable = ({ user }: Props) => {
                   </strong>
                   <span className="text-sm font-medium text-gray-700">
                     {" "}
-                    /credits
+                    /{plan.credits} credits
                   </span>
                 </p>
               </div>
