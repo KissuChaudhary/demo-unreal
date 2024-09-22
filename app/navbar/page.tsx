@@ -5,6 +5,7 @@ import { NavigationMenuBar } from "./navigation-bar";
 import Link from "next/link";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import LaunchPriceBanner from "./LaunchPriceBanner";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -43,6 +44,8 @@ export default async function Navbar() {
     .single();
 
   return (
+    <>
+      {!user && <LaunchPriceBanner />}
     <div className="border-b">
       <div className="flex justify-between items-center h-16 px-4 py-2 max-w-full md:max-w-[1240px] mx-auto">
         <Link href="/">
@@ -152,5 +155,6 @@ export default async function Navbar() {
         )}
       </div>
     </div>
+      </>
   );
 }
