@@ -99,9 +99,9 @@ export const Login = ({
   }
 
  return (
-  <div className="min-h-screen flex items-center justify-center p-4">
+  <div className="flex items-center justify-center py-8">
     <div className="w-full max-w-md">
-      <div className="bg-white dark:bg-gray-800 shadow-xl rounded-2xl overflow-hidden">
+      <div className="bg-white dark:bg-gray-800 shadow-lg rounded-2xl overflow-hidden">
         <div className="p-8">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
