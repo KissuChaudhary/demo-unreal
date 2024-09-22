@@ -1,30 +1,47 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import axios from 'axios'
+import { NextResponse } from 'next/server';
+import axios from 'axios';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method Not Allowed' })
+const rateLimit = 100; // Number of requests allowed in the time window
+const rateLimitWindow = 15 * 60 * 1000; // 15 minutes in milliseconds
+const ipRequests = new Map<string, { count: number, resetTime: number }>();
+
+export async function POST(request: Request) {
+  const ip = request.headers.get('x-forwarded-for') || 'unknown';
+  const now = Date.now();
+
+  let reqInfo = ipRequests.get(ip);
+  if (!reqInfo || now > reqInfo.resetTime) {
+    reqInfo = { count: 0, resetTime: now + rateLimitWindow };
   }
 
-  const { imageUrl } = req.body
-
-  if (!imageUrl) {
-    return res.status(400).json({ error: 'Image URL is required' })
+  if (reqInfo.count >= rateLimit) {
+    return NextResponse.json({ error: 'Rate limit exceeded' }, { status: 429 });
   }
+
+  reqInfo.count++;
+  ipRequests.set(ip, reqInfo);
 
   try {
+    const { imageUrl } = await request.json();
+
+    if (!imageUrl) {
+      return NextResponse.json({ error: 'Image URL is required' }, { status: 400 });
+    }
+
     const response = await axios.get(imageUrl, {
       responseType: 'arraybuffer'
-    })
+    });
 
-    res.setHeader('Content-Type', 'image/jpeg')
-    res.setHeader('Content-Disposition', 'attachment; filename="download.jpg"')
-    res.send(Buffer.from(response.data, 'binary'))
+    const headers = new Headers();
+    headers.set('Content-Type', 'image/jpeg');
+    headers.set('Content-Disposition', 'attachment; filename="download.jpg"');
+
+    return new NextResponse(Buffer.from(response.data, 'binary'), {
+      status: 200,
+      headers: headers,
+    });
   } catch (error) {
-    console.error('Error downloading image:', error)
-    res.status(500).json({ error: 'Failed to download image' })
+    console.error('Error downloading image:', error);
+    return NextResponse.json({ error: 'Failed to download image' }, { status: 500 });
   }
 }
