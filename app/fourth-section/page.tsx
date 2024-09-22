@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Link from "next/link";
-import { ThumbsUp, Shield, Lock, LucideIcon } from 'lucide-react';
+import { ThumbsUp, Shield, Lock, LucideIcon, Sparkles } from 'lucide-react';
 
 interface FeatureCardProps {
   icon: React.ReactElement<LucideIcon>;
