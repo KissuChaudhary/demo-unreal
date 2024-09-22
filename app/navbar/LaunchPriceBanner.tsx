@@ -14,14 +14,14 @@ const LaunchPriceBanner = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center">
-          <span className="font-bold text-indigo-600 mr-2">50% off Basic Plan - Launch Offer!</span>
+          <span className="font-bold text-indigo-600 mr-2">30% off Launch Price!</span>
         </div>
         <div className="mt-1 relative">
           <div className="inline-block relative" style={{ width: '40px' }}>
             <span className="invisible">$21.99</span>
             <div 
               className={`
-                absolute left-0 top-0 w-full bg-white
+                absolute left-[-15px] top-0 w-full bg-white
                 transition-all duration-300 ease-in-out
                 transform rotate-[-5deg]
                 ${isRevealed ? 'translate-y-full opacity-0' : 'opacity-100'}
@@ -29,13 +29,14 @@ const LaunchPriceBanner = () => {
               style={{
                 borderRadius: '5px',
                 zIndex: 1000,
+                width: 'calc(100% + 5px)',
               }}
             >
-              <span className="font-bold text-indigo-500 text-lg">$10.99</span>
+              <span className="font-bold text-indigo-500 text-lg">$15.49</span>
             </div>
             <span className="absolute left-[-15px] top-0 line-through text-indigo-400 text-lg font-semibold">$21.99</span>
           </div>
-          <span className="text-indigo-400 text-xs ml-1 font-semibold">/ month</span>
+          <span className="text-indigo-400 text-xs ml-1 font-semibold">/ 04 Credits</span>
         </div>  
       </div>
     </div>
