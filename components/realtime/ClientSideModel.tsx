@@ -5,11 +5,8 @@ import { Icons } from "@/components/icons";
 import { Database } from "@/types/supabase";
 import { imageRow, modelRow, sampleRow } from "@/types/utils";
 import { createClient } from "@supabase/supabase-js";
-import { AspectRatio } from "../ui/aspect-ratio";
-import { Badge } from "../ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
 export const revalidate = 0;
 
@@ -47,20 +44,31 @@ export default function ClientSideModel({
     };
   }, [supabase, model, setModel]);
 
-  const handleDownload = (imageUrl: string, fileName: string) => {
-    fetch(imageUrl)
-      .then(response => response.blob())
-      .then(blob => {
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = url;
-        a.download = fileName;
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(url);
-      })
-      .catch(() => console.error('Error downloading the image'));
+  const handleDownload = async (imageUrl: string, fileName: string) => {
+    try {
+      const response = await fetch('/api/download', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ imageUrl }),
+      });
+
+      if (!response.ok) throw new Error('Download failed');
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error downloading the image:', error);
+      // You might want to show an error message to the user here
+    }
   };
 
   return (
