@@ -99,9 +99,9 @@ export const Login = ({
   }
 
  return (
-  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-950 p-4">
+  <div className="min-h-screen flex items-center justify-center p-4">
     <div className="w-full max-w-md">
-      <div className="bg-white dark:bg-gray-800 shadow-2xl rounded-2xl overflow-hidden transform transition-all hover:scale-105 duration-300">
+      <div className="bg-white dark:bg-gray-800 shadow-xl rounded-2xl overflow-hidden">
         <div className="p-8">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
@@ -157,7 +157,7 @@ export const Login = ({
             <Button
               isLoading={isSubmitting}
               disabled={isSubmitting}
-              className="w-full py-3 px-4 text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none shadow h-9 w-full py-3 px-4 text-white bg-indigo-900 hover:bg-indigo-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               type="submit"
             >
               {isSubmitting ? "Signing In..." : "Continue with Email"}
