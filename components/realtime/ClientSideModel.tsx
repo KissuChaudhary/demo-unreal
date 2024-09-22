@@ -9,6 +9,7 @@ import { AspectRatio } from "../ui/aspect-ratio";
 import { Badge } from "../ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const revalidate = 0;
 
