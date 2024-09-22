@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link";
 import { ThumbsUp, Shield, Lock, LucideIcon } from 'lucide-react';
 
 interface FeatureCardProps {
