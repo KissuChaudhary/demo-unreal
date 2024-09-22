@@ -141,12 +141,12 @@ export async function POST(request: Request) {
           {
             text: `portrait of ohwx ${type} wearing a business suit, professional photo, white background, Amazing Details, Best Quality, Masterpiece, dramatic lighting highly detailed, analog photo, overglaze, 80mm Sigma f/1.4 or any ZEISS lens`,
             callback: promptWebhookWithParams,
-            num_images: 8,
+            num_images: 3,
           },
           {
             text: `8k close up linkedin profile picture of ohwx ${type}, professional jack suite, professional headshots, photo-realistic, 4k, high-resolution image, workplace settings, upper body, modern outfit, professional suit, business, blurred background, glass building, office window`,
             callback: promptWebhookWithParams,
-            num_images: 8,
+            num_images: 3,
           },
         ],
       },
