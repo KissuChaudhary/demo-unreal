@@ -1,13 +1,12 @@
 "use client";
 
-import { FaImages, FaRocket } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Database } from "@/types/supabase";
 import { modelRowWithSamples } from "@/types/utils";
 import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaImages } from "react-icons/fa";
+import { FaImages, FaRocket} from "react-icons/fa";
 import ModelsTable from "../ModelsTable";
 import ClearModels from "../ClearModels";
 
