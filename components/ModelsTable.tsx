@@ -38,8 +38,10 @@ export default function ModelsTable({ models }: ModelsTableProps) {
               <TableCell className="font-medium">{model.name}</TableCell>
               <TableCell>
                 <Badge 
-                  variant={model.status === "processing" ? "secondary" : "success"}
-                  className="flex items-center space-x-1"
+                  variant={model.status === "processing" ? "secondary" : "default"}
+                  className={`flex items-center space-x-1 ${
+                    model.status === "processing" ? "bg-yellow-100 text-yellow-800" : "bg-green-100 text-green-800"
+                  }`}
                 >
                   {model.status === "processing" && (
                     <Loader2 className="h-3 w-3 animate-spin" />
