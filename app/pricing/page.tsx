@@ -24,6 +24,7 @@ const pricingOptions = [
     features: [
       "04 Credits",
       "24 headshots",
+      "Priority Support",
       "90 min turnaround time"
     ],
     popular: true,
@@ -31,12 +32,14 @@ const pricingOptions = [
   },
   {
     title: "Premium",
-    price: "$45.49",
+    price: "$41.99",
     originalPrice: "$49.49",
+    discount: "-15%",
     features: [
       "09 Credits",
       "54 headshots",
-      "120 min turnaround time"
+      "Priority Support",
+      "90 min turnaround time"
     ],
     popular: false,
     bestValue: true
@@ -61,7 +64,7 @@ const Pricing = () => {
             )}
             {option.bestValue && (
               <div className="absolute top-0 right-0 bg-teal-500 text-white px-3 py-1 rounded-tr-lg text-sm font-semibold">
-                BEST VALUE
+                FOR TEAMS
               </div>
             )}
             <CardHeader>
@@ -86,7 +89,7 @@ const Pricing = () => {
             </CardContent>
             <CardFooter>
               <Link href="/login">
-              <Button className="w-full flex items-center bg-indigo-900 text-white py-2 px-6 rounded shadow-lg hover:bg-indigo-800 transition duration-300" variant={option.popular ? "default" : "outline"}>
+              <Button className="w-full flex items-center bg-indigo-900 text-white py-2 px-6 hover:text-white rounded shadow-lg hover:bg-indigo-800 transition duration-300" variant={option.popular ? "default" : "outline"}>
                 Get Your Headshots
               </Button>
                 </Link>
