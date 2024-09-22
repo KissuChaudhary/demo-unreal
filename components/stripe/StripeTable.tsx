@@ -171,7 +171,7 @@ const StripePricingTable = ({ user }: Props) => {
           return (
             <div
               key={planKey}
-              className="grid grid-cols-1 px-4 gap-4 sm:grid-cols-3 md:gap-8" style={{ paddingBottom: "5rem" }}"
+              className="grid grid-cols-1 px-4 py-4 gap-4 sm:grid-cols-3 md:gap-8"
             >
               <div className="text-center">
                 <h2 className="text-lg font-medium text-gray-900">
