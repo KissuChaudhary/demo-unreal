@@ -84,8 +84,12 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onToggle })
   </div>
 );
 
-const BurgerIcon = () => (
-  <svg className="w-8 h-8 text-yellow-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+interface BurgerIconProps {
+  className?: string;
+}
+
+const BurgerIcon: React.FC<BurgerIconProps> = ({ className }) => (
+  <svg className={`w-8 h-8 text-yellow-500 ${className || ''}`} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M3 14H21V16C21 17.1046 20.1046 18 19 18H5C3.89543 18 3 17.1046 3 16V14Z" fill="currentColor" />
     <path d="M3 11H21V12H3V11Z" fill="currentColor" />
     <path d="M3 8C3 6.89543 3.89543 6 5 6H19C20.1046 6 21 6.89543 21 8V9H3V8Z" fill="currentColor" />
@@ -136,7 +140,7 @@ const FAQSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="relative py-24 px-2 sm:px-6 lg:px-8 overflow-hidden">
+     <div className="relative py-24 px-2 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="rounded-3xl p-8 lg:p-12 shadow-2xl flex flex-col lg:flex-row items-center justify-between bg-gradient-to-br from-white to-gray-100">
             <div className="mb-12 lg:mb-0 lg:mr-12 lg:w-1/2 relative z-10">
