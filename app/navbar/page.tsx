@@ -99,6 +99,7 @@ export default async function Navbar() {
               </Button>
             </Link>
           )}
+              <DropdownMenuSeparator />
               <DropdownMenuLabel className="text-primary text-center overflow-hidden text-ellipsis">
                 {user.email}
               </DropdownMenuLabel>
