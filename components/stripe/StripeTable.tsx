@@ -33,7 +33,7 @@ const plans: { [key in PlanType]: PlanDetails } = {
   },
   threeCredits: {
     title: "4 Credits",
-    price: 19.49,
+    price: 15.49,
     credits: 4,
     images: 24,
     models: 3,
