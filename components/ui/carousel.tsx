@@ -1,75 +1,135 @@
 "use client";
-import React, { useState } from 'react';
-import { Camera, Wand2, Image } from 'lucide-react';
 
-const HowItWorks = () => {
-  const [activeStep, setActiveStep] = useState(0);
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
-  const steps = [
-    {
-      title: "Upload Your Photos",
-      description: "Submit 5+ high-quality selfies. Ensure they are front-facing, with only one person, no hats or accessories.",
-      icon: Camera,
-    },
-    {
-      title: "AI Processing",
-      description: "Our AI Headshot Generator works its magic in about 60-90 minutes, learning your facial features for perfect business headshots.",
-      icon: Wand2,
-    },
-    {
-      title: "Receive Headshots",
-      description: "Get your stunning, professional-quality headshots once the model is trained for the most professional look.",
-      icon: Image,
-    }
-  ];
+const images = [
+  {
+    url: "/images/logo/logo-2.svg",
+    alt: "Logo",
+  },
+  {
+    url: "/images/logo/logo-3.svg",
+    alt: "Logo",
+  },
+
+  {
+    url: "/images/logo/logo-4.svg",
+    alt: "Logo",
+  },
+
+  {
+    url: "/images/logo/logo-5.svg",
+    alt: "Logo",
+  },
+
+  {
+    url: "/images/logo/logo-6.svg",
+    alt: "Logo",
+  },
+
+  {
+    url: "/images/logo/logo-7.svg",
+    alt: "Logo",
+  },
+
+  {
+    url: "/images/logo/logo-8.svg",
+    alt: "Logo",
+  },
+
+  {
+    url: "/images/logo/logo-9.svg",
+    alt: "Logo",
+  },
+
+  {
+    url: "/images/logo/logo-10.svg",
+    alt: "Logo",
+  },
+
+  {
+    url: "/images/logo/logo-11.svg",
+    alt: "Logo",
+  },
+
+  {
+    url: "/images/logo/logo-12.svg",
+    alt: "Logo",
+  },
+
+  {
+    url: "/images/logo/logo-13.svg",
+    alt: "Logo",
+  },
+
+  {
+    url: "/images/logo/logo-14.svg",
+    alt: "Logo",
+  },
+];
+
+const Carousel = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-indigo-50 flex items-center justify-center py-8 px-2 overflow-hidden">
-      {/* Floating elements */}
-      <div className="bg-white rounded-3xl p-8 max-w-6xl w-full relative z-10">
-        <h2 className="text-4xl font-bold mb-2 text-indigo-800">How It Works</h2>
-        <p className="text-xl mb-8">
-          Three steps to your perfect AI-generated headshot
-        </p>
+    <div>
+      <div
+        className="items-center justify-center flex text-3xl font-bold md:pb-10 px-10
+  bg-gradient-to-r
+  from-purple-500
+  to-green-300
+  bg-clip-text
+  text-transparent
+  "
+      >
+        More than 50+ brands have created AI headshots with Framecast AI.
+      </div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Left-aligned tabs */}
-          <div className="lg:w-1/3">
-            {steps.map((step, index) => (
-              <div
-                key={index}
-                className={`mb-4 p-4 rounded-2xl cursor-pointer transition-all duration-300 ${
-                  index === activeStep 
-                    ? 'bg-indigo-900 text-white shadow-lg scale-105' 
-                    : 'bg-indigo-50 text-indigo-800 hover:bg-indigo-100'
-                }`}
-                onClick={() => setActiveStep(index)}
-              >
-                <h3 className="text-lg font-semibold flex items-center">
-                  <step.icon className="w-6 h-6 mr-3" />
-                  {step.title}
-                </h3>
-              </div>
-            ))}
-          </div>
-
-          {/* Right-aligned content cards */}
-          <div className="lg:w-2/3">
-            <div
-              key={activeStep}
-              className="bg-indigo-900 rounded-3xl p-8 shadow-xl transition-all duration-300 transform hover:scale-105"
+      <div className="grid grid-cols-3 p-4 md:flex">
+        <AnimatePresence custom={currentImageIndex}>
+          {images.map((image, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: index === currentImageIndex ? 1 : 0.5,
+                scale: index === currentImageIndex ? 1.2 : 1,
+                transition: { duration: 0.5 },
+              }}
+              className="flex justify-center items-center h-40 w-40"
+              exit={{ opacity: 0 }}
+              custom={index}
+              transition={{
+                opacity: { duration: 0.5 },
+              }}
             >
-              <div className="flex items-center justify-center w-20 h-20 bg-white bg-opacity-20 rounded-full mb-6 mx-auto">
-                {React.createElement(steps[activeStep].icon, { className: "w-10 h-10 text-white" })}
-              </div>
-              <h4 className="text-2xl font-bold mb-4 text-white text-center">{steps[activeStep].title}</h4>
-              <p className="text-indigo-100 text-center leading-relaxed">{steps[activeStep].description}</p>
-            </div>
-          </div>
-        </div>
+              <Image
+                src={image.url}
+                alt={image.alt}
+                width={200}
+                height={200}
+                className="object-contain h-20 w-20 items-center flex mx-auto"
+              />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
     </div>
   );
 };
 
-export default HowItWorks;
+export default Carousel;

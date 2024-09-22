@@ -25,25 +25,25 @@ type PlanDetails = {
 const plans: { [key in PlanType]: PlanDetails } = {
   oneCredit: {
     title: "1 Credit",
-    price: 4.99,
+    price: 12,
     credits: 1,
-    images: 4,
+    images: 16,
     models: 1,
     stripePriceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ID_ONE_CREDIT!,
   },
   threeCredits: {
-    title: "5 Credits",
-    price: 23.99,
-    credits: 5,
-    images: 20,
+    title: "3 Credits",
+    price: 30,
+    credits: 3,
+    images: 48,
     models: 3,
     stripePriceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ID_THREE_CREDITS!,
   },
   fiveCredits: {
-    title: "10 Credits",
-    price: 45.99,
+    title: "5 Credits",
+    price: 40,
     credits: 5,
-    images: 45,
+    images: 80,
     models: 5,
     stripePriceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ID_FIVE_CREDITS!,
   },
@@ -169,7 +169,6 @@ const StripePricingTable = ({ user }: Props) => {
         {Object.keys(plans).map((planKey) => {
           const plan = plans[planKey as PlanType];
           return (
-            
             <div
               key={planKey}
               className="rounded-2xl bg-white border border-gray-200 p-6 shadow-sm sm:px-8 lg:p-12"
@@ -184,7 +183,7 @@ const StripePricingTable = ({ user }: Props) => {
                   </strong>
                   <span className="text-sm font-medium text-gray-700">
                     {" "}
-                    /month
+                    /credits
                   </span>
                 </p>
               </div>

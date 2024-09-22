@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaImages } from "react-icons/fa";
 import ModelsTable from "../ModelsTable";
+import ClearModels from "../ClearModels";
 
 export const revalidate = 0;
 
@@ -22,6 +23,7 @@ export default function ClientSideModelsList({
     process.env.NEXT_PUBLIC_SUPABASE_URL as string,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
   );
+
   const [models, setModels] = useState<modelRowWithSamples[]>(serverModels);
 
   useEffect(() => {
@@ -55,17 +57,22 @@ export default function ClientSideModelsList({
     };
   }, [supabase, models, setModels]);
 
+  const handleDeleteModels = () => {
+    setModels([]);
+  };
+
   return (
     <div id="train-model-container" className="w-full">
       {models && models.length > 0 && (
         <div className="flex flex-col gap-4">
           <div className="flex flex-row gap-4 w-full justify-between items-center text-center">
             <h1>Your models</h1>
-            <Link href="/overview/models/train" className="w-fit">
-              <Button size={"sm"}>
-                Train model
-              </Button>
-            </Link>
+            <div className="flex gap-2">
+              <ClearModels onClear={handleDeleteModels} />
+              <Link href="/overview/models/train" className="w-fit">
+                <Button size={"sm"}>Train model</Button>
+              </Link>
+            </div>
           </div>
           <ModelsTable models={models} />
         </div>
