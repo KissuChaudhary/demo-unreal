@@ -7,37 +7,36 @@ const LaunchPriceBanner = () => {
 
   return (
     <div 
-      className="bg-pink-100 py-2 text-center cursor-pointer"
+      className="bg-indigo-100 py-2 text-center cursor-pointer"
       onMouseEnter={() => setIsRevealed(true)}
       onMouseLeave={() => setIsRevealed(false)}
       onClick={() => setIsRevealed(!isRevealed)} // For touch devices
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center">
-          <span className="font-bold text-pink-600 mr-2">50% off</span>
-          <span className="font-bold text-pink-600 ml-2">launch price!</span>
+          <span className="font-bold text-indigo-600 mr-2">50% off Basic Plan - Launch Offer!</span>
         </div>
         <div className="mt-1 relative">
           <div className="inline-block relative" style={{ width: '40px' }}>
-            <span className="invisible">$19</span>
-            <div className={`
-              absolute left-0 top-0 w-full bg-white
-              border-radius: 5px z-index: 1000
-              transition-all duration-300 ease-in-out
-              transform rotate-[-5deg]
-              ${isRevealed ? 'translate-y-full opacity-0' : 'opacity-100'}
-            `}
-            style={{
-              borderRadius: '5px',
-              zIndex: 1000,
-            }}
+            <span className="invisible">$21.99</span>
+            <div 
+              className={`
+                absolute left-0 top-0 w-full bg-white
+                transition-all duration-300 ease-in-out
+                transform rotate-[-5deg]
+                ${isRevealed ? 'translate-y-full opacity-0' : 'opacity-100'}
+              `}
+              style={{
+                borderRadius: '5px',
+                zIndex: 1000,
+              }}
             >
-              <span className="font-bold text-pink-500 text-lg">$9</span>
+              <span className="font-bold text-indigo-500 text-lg">$10.99</span>
             </div>
-            <span className="absolute left-0 top-0 line-through text-pink-400 text-lg">$19</span>
+            <span className="absolute left-0 top-0 line-through text-indigo-400 text-lg font-semibold">$19</span>
           </div>
-          <span className="text-pink-400 text-xs ml-1">/ month</span>
-        </div>
+          <span className="text-indigo-400 text-xs ml-1 font-semibold">/ month</span>
+        </div>  
       </div>
     </div>
   );
