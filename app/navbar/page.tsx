@@ -117,10 +117,7 @@ export default async function Navbar() {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                  <DropdownMenuItem>
-                    <User className="mr-2 h-4 w-4" />
-                    <span>Profile</span>
-                  </DropdownMenuItem>
+                 
                   <Link href="/overview">
                     <DropdownMenuItem>
                       <LayoutDashboard className="mr-2 h-4 w-4" />
