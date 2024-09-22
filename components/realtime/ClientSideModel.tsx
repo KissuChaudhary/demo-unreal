@@ -72,7 +72,7 @@ export default function ClientSideModel({
   };
 
   return (
-    <div id="train-model-container" className="w-full h-full">
+    <div id="train-model-container" className="w-full h-full" style="margin-bottom: 5em;">
       <div className="flex flex-col w-full mt-4 gap-8">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
           {samples && (
