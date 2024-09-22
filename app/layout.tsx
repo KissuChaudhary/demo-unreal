@@ -39,7 +39,7 @@ export default function RootLayout({ children }: any) {
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen">
-        <Script id="schema-website" type="application/ld+json">
+       <Script id="schema-website" type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
@@ -49,51 +49,6 @@ export default function RootLayout({ children }: any) {
               "@type": "SearchAction",
               "target": "https://www.unrealshot.com/search?q={search_term_string}",
               "query-input": "required name=search_term_string",
-            },
-          })}
-        </Script>
-
-        <Script id="schema-webpage" type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "UnrealShot AI - Best AI Headshot Generator | Create Most Realistic Professional Headshots",
-            "description": metadata.description,
-            "url": "https://www.unrealshot.com",
-            "isPartOf": {
-              "@type": "WebSite",
-              "name": "UnrealShot AI",
-              "url": "https://www.unrealshot.com",
-            },
-            "image": "/assets/ui/1.png",
-            "author": {
-              "@type": "Organization",
-              "name": "UnrealShot AI",
-            },
-          })}
-        </Script>
-
-        <Script id="schema-webapplication" type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "UnrealShot AI - Best AI Headshot Generator | Create Most Realistic Professional Headshots",
-            "url": "https://www.unrealshot.com",
-            "applicationCategory": "PhotoEditing",
-            "operatingSystem": "All",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD",
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "reviewCount": "89",
-            },
-            "author": {
-              "@type": "Organization",
-              "name": "UnrealShot AI",
             },
           })}
         </Script>
