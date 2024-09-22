@@ -200,7 +200,7 @@ const ComparisonPage = () => {
         </div>
 
         {/* Call to Action Section */}
-        <div className="relative mb-8 flex flex-col items-center justify-center text-center">
+        <div className="relative flex flex-col items-center justify-center text-center">
           <span className="inline-block transform -rotate-12 font-handwriting mb-2">
             Results Within Hours!
           </span>
