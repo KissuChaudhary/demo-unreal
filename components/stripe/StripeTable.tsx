@@ -41,7 +41,7 @@ const plans: { [key in PlanType]: PlanDetails } = {
   },
   fiveCredits: {
     title: "9 Credits",
-    price: 45.49,
+    price: 41.99,
     credits: 9,
     images: 54,
     models: 5,
