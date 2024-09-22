@@ -28,7 +28,7 @@ const LaunchPriceBanner = () => {
               `}
               style={{
                 borderRadius: '5px',
-                zIndex: 1000,
+                zIndex: 1,
                 width: 'calc(100% + 1.5em)',
               }}
             >
