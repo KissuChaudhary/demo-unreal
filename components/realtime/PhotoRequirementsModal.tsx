@@ -1,7 +1,21 @@
 import React, { useState } from 'react';
 import { Dialog } from '@/components/ui/dialog';
 
-const slides = [
+type SlideWithItems = {
+  title: string;
+  content: string;
+  items: Array<{ text: string; icon: string }>;
+};
+
+type SlideWithImages = {
+  title: string;
+  content: string;
+  images: string[];
+};
+
+type Slide = SlideWithItems | SlideWithImages;
+
+const slides: Slide[] = [
   {
     title: "Photo requirements",
     content: "The AI will learn about you from your photos. It will pick things that repeat across photos, and assume those to be part of your appearance.",
@@ -37,6 +51,14 @@ const PhotoRequirementsModal: React.FC<PhotoRequirementsModalProps> = ({ isOpen,
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
+  const isSlideWithItems = (slide: Slide): slide is SlideWithItems => {
+    return 'items' in slide;
+  };
+
+  const isSlideWithImages = (slide: Slide): slide is SlideWithImages => {
+    return 'images' in slide;
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <div className="bg-white rounded-lg p-6 max-w-3xl w-full">
@@ -46,7 +68,7 @@ const PhotoRequirementsModal: React.FC<PhotoRequirementsModalProps> = ({ isOpen,
         <h2 className="text-2xl font-bold mb-4">{slides[currentSlide].title}</h2>
         <p className="mb-4">{slides[currentSlide].content}</p>
         
-        {slides[currentSlide].items && (
+        {isSlideWithItems(slides[currentSlide]) && (
           <div className="grid grid-cols-2 gap-4 mb-4">
             {slides[currentSlide].items.map((item, index) => (
               <div key={index} className="flex items-center">
@@ -57,7 +79,7 @@ const PhotoRequirementsModal: React.FC<PhotoRequirementsModalProps> = ({ isOpen,
           </div>
         )}
         
-        {slides[currentSlide].images && (
+        {isSlideWithImages(slides[currentSlide]) && (
           <div className="grid grid-cols-2 gap-4 mb-4">
             {slides[currentSlide].images.map((img, index) => (
               <img key={index} src={img} alt={`Example ${index + 1}`} className="rounded-lg" />
