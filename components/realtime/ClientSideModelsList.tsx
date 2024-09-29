@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import ModelsTable from "../ModelsTable";
 import ClearModels from "../ClearModels";
-import Image from "next/image";
+import PhotoRequirementsModal from "./PhotoRequirementsModal";
 
 export const revalidate = 0;
 
@@ -15,7 +15,7 @@ type ClientSideModelsListProps = {
   serverModels: modelRowWithSamples[] | [];
 };
 
-const PhotoUploadInstructions = () => (
+const PhotoUploadInstructions = ({ onOpenModal }: { onOpenModal: () => void }) => (
   <div className="mb-8">
     <h2 className="text-2xl font-bold mb-4">Upload your best photos</h2>
     <p className="text-blue-600 mb-2">
@@ -25,21 +25,21 @@ const PhotoUploadInstructions = () => (
     <p className="text-red-600 mb-4">⚠️ Bad photos = Bad Headshots</p>
     <div className="grid grid-cols-3 gap-4 mb-4">
       <div className="border border-red-500 rounded-lg p-2">
-        <Image src="https://www.unrealshot.com/content/headshot5.webp" alt="No group shots" width={200} height={150} className="mb-2" />
+        <img src="/content/headshot5.webp" alt="No group shots" className="w-full mb-2" />
         <p className="text-center">👥 No group shots</p>
       </div>
       <div className="border border-red-500 rounded-lg p-2">
-        <Image src="https://www.unrealshot.com/content/headshot5.webp" alt="No blurry or low resolution photos" width={200} height={150} className="mb-2" />
+        <img src="/content/headshot5.webp" alt="No blurry or low resolution photos" className="w-full mb-2" />
         <p className="text-center">🖼️ No blurry or low resolution photos</p>
       </div>
       <div className="border border-red-500 rounded-lg p-2">
-        <Image src="https://www.unrealshot.com/content/headshot5.webp" alt="No old photos" width={200} height={150} className="mb-2" />
+        <img src="/content/headshot5.webp" alt="No old photos" className="w-full mb-2" />
         <p className="text-center">👴 No old photos</p>
       </div>
     </div>
     <button
       className="text-blue-500 underline"
-      onClick={() => {/* TODO: Implement popup preview */}}
+      onClick={onOpenModal}
     >
       📋 Read complete photo requirements
     </button>
@@ -54,6 +54,7 @@ export default function ClientSideModelsList({
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
   );
   const [models, setModels] = useState<modelRowWithSamples[]>(serverModels);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const channel = supabase
@@ -88,7 +89,8 @@ export default function ClientSideModelsList({
 
   return (
     <div id="train-model-container" className="w-full mx-auto px-4 py-16">
-      <PhotoUploadInstructions />
+      <PhotoUploadInstructions onOpenModal={() => setIsModalOpen(true)} />
+      <PhotoRequirementsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       {models && models.length > 0 && (
         <div className="flex flex-col gap-6">
           <div className="flex flex-row gap-4 w-full justify-between items-center">
