@@ -18,8 +18,8 @@ type Slide = SlideWithItems | SlideWithImages;
 
 const slides: Slide[] = [
   {
-    title: "Photo requirements",
-    content: "The AI will learn about you from your photos. It will pick things that repeat across photos, and assume those to be part of your appearance.",
+    title: "Photo Requirements",
+    content: "The AI analyzes your photos to understand your appearance. It looks for features that show up in multiple images and uses them to create a consistent version of your look.",
     items: [
       { text: "No group shots", icon: "👥" },
       { text: "No blurry or low resolution photos", icon: "🖼️" },
@@ -38,13 +38,13 @@ const slides: Slide[] = [
     ]
   },
   {
-    title: "Don't upload old photos",
-    content: "Upload recent photos that show your current appearance. If you use older photos or photos where you look very different, AI may generate headshots that don't resemble you.",
+    title: "Use Recent Photos",
+    content: "Upload photos that reflect your current appearance. If you upload old or outdated photos, the AI might create headshots that don’t look like you.",
     images: ["/content/old1.webp", "/content/old2.webp", "/content/old3.webp", "/content/old4.webp"]
   },
   {
-    title: "Variety in background, clothes, and expression",
-    content: "Photos captured on different occasions, with different backgrounds, clothes and expressions, helps the AI develop a comprehensive understanding of your appearance",
+    title: "Use Different Backgrounds, Outfits, and Expressions",
+    content: "Uploading photos from various occasions, with different backgrounds, outfits, and expressions, helps the AI create a more accurate and well-rounded representation of your appearance.",
     images: ["/content/variety1.webp", "/content/variety2.webp", "/content/variety3.webp", "/content/variety4.webp"]
   }
 ];
