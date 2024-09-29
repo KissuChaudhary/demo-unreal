@@ -78,8 +78,8 @@ const PhotoRequirementsModal: React.FC<PhotoRequirementsModalProps> = ({ isOpen,
           {isSlideWithItems(currentSlideContent) && (
             <div className="grid grid-cols-3 gap-4 mb-4">
               {currentSlideContent.items.map((item, index) => (
-                <div key={index} className="border border-red-500 rounded-lg p-2">
-                  <img src={currentSlideContent.images[index]} alt={item.text} className="w-full mb-2 rounded-lg" />
+                <div key={index} className="border w-full aspect-[4/5] border-red-500 rounded-lg p-2">
+                  <img src={currentSlideContent.images[index]} alt={item.text} className="w-full mb-2 rounded-lg object-cover" />
                   <p className="text-center">
                     <span className="mr-2">{item.icon}</span>
                     {item.text}
@@ -90,9 +90,9 @@ const PhotoRequirementsModal: React.FC<PhotoRequirementsModalProps> = ({ isOpen,
           )}
           
           {!isSlideWithItems(currentSlideContent) && (
-            <div className="grid grid-cols-2 gap-4 mb-4">
+            <div className="grid grid-cols-2 gap-4 w-full aspect-[4/5] mb-4">
               {currentSlideContent.images.map((img, index) => (
-                <img key={index} src={img} alt={`Example ${index + 1}`} className="rounded-lg" />
+                <img key={index} src={img} alt={`Example ${index + 1}`} className="rounded-lg object-cover" />
               ))}
             </div>
           )}
