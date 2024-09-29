@@ -15,50 +15,37 @@ type ClientSideModelsListProps = {
   serverModels: modelRowWithSamples[] | [];
 };
 
-const PhotoUploadInstructions = ({ onOpenModal }: { onOpenModal: () => void }) => (
-  <div className="mb-8 max-w-md mx-auto px-4">
-    <h2 className="text-2xl font-bold mb-4">Upload your best photos</h2>
+const PhotoUploadInstructions: React.FC<{ onOpenModal: () => void }> = ({ onOpenModal }) => (
+  <div className="mb-6 max-w-3xl mx-auto px-2">
+    <h2 className="text-2xl font-bold mb-3">Upload your best photos</h2>
     <p className="text-blue-600 mb-2">
       IMPORTANT: The headshots depend completely on the photos you upload.
       Upload at least 10 photos. Follow the photo requirements carefully.
     </p>
-    <p className="text-red-600 mb-4 flex items-center">
-      <span className="mr-2">⚠️</span> Bad photos = Bad Headshots
-    </p>
-    <div className="flex overflow-x-auto pb-4 space-x-4 snap-x">
-      <div className="flex-none w-[calc(50%-8px)] snap-center">
-        <div className="border border-red-500 rounded-lg p-2 aspect-[4/5]">
-          <img src="/content/headshot5.webp" alt="No group shots" className="w-full h-[calc(100%-24px)] object-cover rounded-lg" />
-          <p className="text-center mt-2">
-            <span className="mr-1">👥</span> No group shots
-          </p>
-        </div>
+    <p className="text-red-600 mb-3">⚠️ Bad photos = Bad Headshots</p>
+    <div className="flex sm:grid sm:grid-cols-3 gap-3 mb-3 overflow-x-auto sm:overflow-x-visible pb-2 sm:pb-0 scrollbar-hide">
+      <div className="border border-red-500 rounded-lg p-2 min-w-[200px] sm:w-full aspect-[4/5] flex-shrink-0">
+        <img src="/content/headshot5.webp" alt="No group shots" className="w-full h-full object-cover mb-2 rounded-lg" />
+        <p className="text-center">👥 No group shots</p>
       </div>
-      <div className="flex-none w-[calc(50%-8px)] snap-center">
-        <div className="border border-red-500 rounded-lg p-2 aspect-[4/5]">
-          <img src="/content/headshot5.webp" alt="No blurry or low resolution photos" className="w-full h-[calc(100%-24px)] object-cover rounded-lg" />
-          <p className="text-center mt-2">
-            <span className="mr-1">🖼️</span> No blurry or low resolution photos
-          </p>
-        </div>
+      <div className="border border-red-500 rounded-lg p-2 min-w-[200px] sm:w-full aspect-[4/5] flex-shrink-0">
+        <img src="/content/headshot5.webp" alt="No blurry or low resolution photos" className="w-full h-full object-cover mb-2 rounded-lg" />
+        <p className="text-center">🖼️ No blurry or low resolution photos</p>
       </div>
-      <div className="flex-none w-[calc(50%-8px)] snap-center">
-        <div className="border border-red-500 rounded-lg p-2 aspect-[4/5]">
-          <img src="/content/headshot5.webp" alt="No old photos" className="w-full h-[calc(100%-24px)] object-cover rounded-lg" />
-          <p className="text-center mt-2">
-            <span className="mr-1">👴</span> No old photos
-          </p>
-        </div>
+      <div className="border border-red-500 rounded-lg p-2 min-w-[200px] sm:w-full aspect-[4/5] flex-shrink-0">
+        <img src="/content/headshot5.webp" alt="No old photos" className="w-full h-full object-cover mb-2 rounded-lg" />
+        <p className="text-center">👴 No old photos</p>
       </div>
     </div>
     <button
-      className="text-blue-500 underline mt-4 flex items-center"
+      className="text-blue-500 underline"
       onClick={onOpenModal}
     >
-      <span className="mr-1">📋</span> Read complete photo requirements
+      📋 Read complete photo requirements
     </button>
   </div>
 );
+
 
 export default function ClientSideModelsList({
   serverModels,
