@@ -17,32 +17,39 @@ type ClientSideModelsListProps = {
 
 const PhotoUploadInstructions: React.FC<{ onOpenModal: () => void }> = ({ onOpenModal }) => (
   <div className="mb-6 max-w-3xl mx-auto px-2">
-    <h2 className="text-2xl font-bold mb-3">Upload your best photos</h2>
+    <h2 className="text-2xl font-bold mb-3">Upload best photos of YOU</h2>
     <p className="text-blue-600 mb-2">
-      IMPORTANT: The headshots depend completely on the photos you upload.
-      Upload at least 10 photos. Follow the photo requirements carefully.
+      IMPORTANT: The quality of your headshots relies entirely on the photos you provide. Please upload a minimum of 4-5 images and carefully follow the photo guidelines.
     </p>
     <p className="text-red-600 mb-3">⚠️ Bad photos = Bad Headshots</p>
     <div className="flex sm:grid sm:grid-cols-3 gap-3 mb-3 overflow-x-auto sm:overflow-x-visible pb-2 sm:pb-0 scrollbar-hide">
-      <div className="border border-red-500 rounded-lg p-2 min-w-[200px] sm:w-full aspect-[4/5] flex-shrink-0">
-        <img src="/content/headshot5.webp" alt="No group shots" className="w-full h-full object-cover mb-2 rounded-lg" />
-        <p className="text-center">👥 No group shots</p>
+      <div className="border border-red-500 rounded-lg p-2 w-[calc(50%-0.375rem)] sm:w-full flex-shrink-0">
+        <div className="aspect-[4/5] mb-2">
+          <img src="/content/headshot5.webp" alt="No group shots" className="w-full h-full object-cover rounded-lg" />
+        </div>
+        <p className="text-center text-sm">👥 No group Photos</p>
       </div>
-      <div className="border border-red-500 rounded-lg p-2 min-w-[200px] sm:w-full aspect-[4/5] flex-shrink-0">
-        <img src="/content/headshot5.webp" alt="No blurry or low resolution photos" className="w-full h-full object-cover mb-2 rounded-lg" />
-        <p className="text-center">🖼️ No blurry or low resolution photos</p>
+      <div className="border border-red-500 rounded-lg p-2 w-[calc(50%-0.375rem)] sm:w-full flex-shrink-0">
+        <div className="aspect-[4/5] mb-2">
+          <img src="/content/headshot5.webp" alt="No blurry or low resolution photos" className="w-full h-full object-cover rounded-lg" />
+        </div>
+        <p className="text-center text-sm">🖼️ No blurry shots</p>
       </div>
-      <div className="border border-red-500 rounded-lg p-2 min-w-[200px] sm:w-full aspect-[4/5] flex-shrink-0">
-        <img src="/content/headshot5.webp" alt="No old photos" className="w-full h-full object-cover mb-2 rounded-lg" />
-        <p className="text-center">👴 No old photos</p>
+      <div className="border border-red-500 rounded-lg p-2 w-[calc(50%-0.375rem)] sm:w-full flex-shrink-0">
+        <div className="aspect-[4/5] mb-2">
+          <img src="/content/headshot5.webp" alt="No old photos" className="w-full h-full object-cover rounded-lg" />
+        </div>
+        <p className="text-center text-sm">👴 No old photos</p>
       </div>
     </div>
-    <button
-      className="text-blue-500 underline"
-      onClick={onOpenModal}
-    >
-      📋 Read complete photo requirements
-    </button>
+    <div className="flex justify-center">
+      <button
+        className="text-blue-500 underline"
+        onClick={onOpenModal}
+      >
+        📋 Read complete photo upload Guide
+      </button>
+    </div>
   </div>
 );
 
