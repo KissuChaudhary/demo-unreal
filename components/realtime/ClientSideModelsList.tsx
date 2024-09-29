@@ -25,15 +25,15 @@ const PhotoUploadInstructions = ({ onOpenModal }: { onOpenModal: () => void }) =
     <p className="text-red-600 mb-4">⚠️ Bad photos = Bad Headshots</p>
     <div className="grid grid-cols-3 gap-4 mb-4">
       <div className="border border-red-500 rounded-lg p-2">
-        <img src="/content/headshot5.webp" alt="No group shots" className="w-full mb-2" />
+        <img src="/no-group-shots.jpg" alt="No group shots" className="w-full mb-2" />
         <p className="text-center">👥 No group shots</p>
       </div>
       <div className="border border-red-500 rounded-lg p-2">
-        <img src="/content/headshot5.webp" alt="No blurry or low resolution photos" className="w-full mb-2" />
+        <img src="/no-blurry-photos.jpg" alt="No blurry or low resolution photos" className="w-full mb-2" />
         <p className="text-center">🖼️ No blurry or low resolution photos</p>
       </div>
       <div className="border border-red-500 rounded-lg p-2">
-        <img src="/content/headshot5.webp" alt="No old photos" className="w-full mb-2" />
+        <img src="/no-old-photos.jpg" alt="No old photos" className="w-full mb-2" />
         <p className="text-center">👴 No old photos</p>
       </div>
     </div>
@@ -87,10 +87,13 @@ export default function ClientSideModelsList({
     setModels([]);
   };
 
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <div id="train-model-container" className="w-full mx-auto px-4 py-16">
-      <PhotoUploadInstructions onOpenModal={() => setIsModalOpen(true)} />
-      <PhotoRequirementsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <PhotoUploadInstructions onOpenModal={openModal} />
+      <PhotoRequirementsModal isOpen={isModalOpen} onClose={closeModal} />
       {models && models.length > 0 && (
         <div className="flex flex-col gap-6">
           <div className="flex flex-row gap-4 w-full justify-between items-center">
