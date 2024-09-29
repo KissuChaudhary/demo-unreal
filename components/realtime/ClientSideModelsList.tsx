@@ -25,21 +25,21 @@ const PhotoUploadInstructions: React.FC<{ onOpenModal: () => void }> = ({ onOpen
     <div className="flex sm:grid sm:grid-cols-3 gap-3 mb-3 overflow-x-auto sm:overflow-x-visible pb-2 sm:pb-0 scrollbar-hide">
       <div className="border border-red-500 rounded-lg p-2 w-[calc(50%-0.375rem)] sm:w-full flex-shrink-0">
         <div className="aspect-[4/5] mb-2">
-          <img src="/content/headshot5.webp" alt="No group shots" className="w-full h-full object-cover rounded-lg" />
+          <img src="/content/groupphoto.webp" alt="No group shots" className="w-full h-full object-cover rounded-lg" />
         </div>
         <p className="text-center text-sm">👥 No group Photos</p>
       </div>
       <div className="border border-red-500 rounded-lg p-2 w-[calc(50%-0.375rem)] sm:w-full flex-shrink-0">
         <div className="aspect-[4/5] mb-2">
-          <img src="/content/headshot5.webp" alt="No blurry or low resolution photos" className="w-full h-full object-cover rounded-lg" />
+          <img src="/content/blurryshot.webp" alt="No blurry or low resolution photos" className="w-full h-full object-cover rounded-lg" />
         </div>
         <p className="text-center text-sm">🖼️ No blurry shots</p>
       </div>
       <div className="border border-red-500 rounded-lg p-2 w-[calc(50%-0.375rem)] sm:w-full flex-shrink-0">
         <div className="aspect-[4/5] mb-2">
-          <img src="/content/headshot5.webp" alt="No old photos" className="w-full h-full object-cover rounded-lg" />
+          <img src="/content/sillyface.webp" alt="No Silly Faces" className="w-full h-full object-cover rounded-lg" />
         </div>
-        <p className="text-center text-sm">👴 No old photos</p>
+        <p className="text-center text-sm">👴 No Silly Faces</p>
       </div>
     </div>
     <div className="flex justify-center">
