@@ -25,15 +25,15 @@ const PhotoUploadInstructions = () => (
     <p className="text-red-600 mb-4">⚠️ Bad photos = Bad Headshots</p>
     <div className="grid grid-cols-3 gap-4 mb-4">
       <div className="border border-red-500 rounded-lg p-2">
-        <Image src="/no-group-shots.jpg" alt="No group shots" width={200} height={150} className="mb-2" />
+        <Image src="https://www.unrealshot.com/content/headshot5.webp" alt="No group shots" width={200} height={150} className="mb-2" />
         <p className="text-center">👥 No group shots</p>
       </div>
       <div className="border border-red-500 rounded-lg p-2">
-        <Image src="/no-blurry-photos.jpg" alt="No blurry or low resolution photos" width={200} height={150} className="mb-2" />
+        <Image src="https://www.unrealshot.com/content/headshot5.webp" alt="No blurry or low resolution photos" width={200} height={150} className="mb-2" />
         <p className="text-center">🖼️ No blurry or low resolution photos</p>
       </div>
       <div className="border border-red-500 rounded-lg p-2">
-        <Image src="/no-old-photos.jpg" alt="No old photos" width={200} height={150} className="mb-2" />
+        <Image src="https://www.unrealshot.com/content/headshot5.webp" alt="No old photos" width={200} height={150} className="mb-2" />
         <p className="text-center">👴 No old photos</p>
       </div>
     </div>
