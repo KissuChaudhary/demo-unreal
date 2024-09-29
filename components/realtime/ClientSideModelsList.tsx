@@ -16,29 +16,29 @@ type ClientSideModelsListProps = {
 };
 
 const PhotoUploadInstructions = ({ onOpenModal }: { onOpenModal: () => void }) => (
-  <div className="mb-8">
+  <div className="mb-8 max-w-3xl mx-auto">
     <h2 className="text-2xl font-bold mb-4">Upload your best photos</h2>
     <p className="text-blue-600 mb-2">
       IMPORTANT: The headshots depend completely on the photos you upload.
       Upload at least 10 photos. Follow the photo requirements carefully.
     </p>
     <p className="text-red-600 mb-4">⚠️ Bad photos = Bad Headshots</p>
-    <div className="grid grid-cols-3 gap-4 mb-4">
-      <div className="border border-red-500 rounded-lg p-2">
-        <img src="/content/headshot5.webp" alt="No group shots" className="w-full mb-2" />
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-4 overflow-x-auto pb-4">
+      <div className="border border-red-500 rounded-lg p-2 w-full aspect-[4/5]">
+        <img src="/content/headshot5.webp" alt="No group shots" className="w-full h-full object-cover mb-2 rounded-lg" />
         <p className="text-center">👥 No group shots</p>
       </div>
-      <div className="border border-red-500 rounded-lg p-2">
-        <img src="/content/headshot5.webp" alt="No blurry or low resolution photos" className="w-full mb-2" />
+      <div className="border border-red-500 rounded-lg p-2 w-full aspect-[4/5]">
+        <img src="/content/headshot5.webp" alt="No blurry or low resolution photos" className="w-full h-full object-cover mb-2 rounded-lg" />
         <p className="text-center">🖼️ No blurry or low resolution photos</p>
       </div>
-      <div className="border border-red-500 rounded-lg p-2">
-        <img src="/content/headshot5.webp" alt="No old photos" className="w-full mb-2" />
+      <div className="border border-red-500 rounded-lg p-2 w-full aspect-[4/5]">
+        <img src="/content/headshot5.webp" alt="No old photos" className="w-full h-full object-cover mb-2 rounded-lg" />
         <p className="text-center">👴 No old photos</p>
       </div>
     </div>
     <button
-      className="text-blue-500 underline"
+      className="text-blue-500 text-center underline"
       onClick={onOpenModal}
     >
       📋 Read complete photo requirements
