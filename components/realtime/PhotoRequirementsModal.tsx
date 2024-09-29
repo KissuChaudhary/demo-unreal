@@ -29,23 +29,23 @@ const slides: Slide[] = [
       { text: "No nudity", icon: "🔞" },
     ],
     images: [
-      "/content/headshot5.webp",
-      "/content/headshot5.webp",
-      "/content/headshot5.webp",
-      "/content/headshot5.webp",
-      "/content/headshot5.webp",
-      "/content/headshot5.webp"
+      "/content/groupphoto.webp",
+      "/content/blurryshot.webp",
+      "/content/nocaps.webp",
+      "/content/sillyface.webp",
+      "/content/mirrorselfies.webp",
+      "/content/nonudity.webp"
     ]
   },
   {
     title: "Don't upload old photos",
     content: "Upload recent photos that show your current appearance. If you use older photos or photos where you look very different, AI may generate headshots that don't resemble you.",
-    images: ["/content/headshot5.webp", "/content/headshot5.webp", "/content/headshot5.webp", "/content/headshot5.webp"]
+    images: ["/content/old1.webp", "/content/old2.webp", "/content/old3.webp", "/content/old4.webp"]
   },
   {
     title: "Variety in background, clothes, and expression",
     content: "Photos captured on different occasions, with different backgrounds, clothes and expressions, helps the AI develop a comprehensive understanding of your appearance",
-    images: ["/content/headshot5.webp", "/content/headshot5.webp", "/content/headshot5.webp", "/content/headshot5.webp"]
+    images: ["/content/variety1.webp", "/content/variety2.webp", "/content/variety3.webp", "/content/variety4.webp"]
   }
 ];
 
