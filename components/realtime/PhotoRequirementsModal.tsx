@@ -68,20 +68,26 @@ const PhotoRequirementsModal: React.FC<PhotoRequirementsModalProps> = ({ isOpen,
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[700px]">
+      <DialogContent className="sm:max-w-[90vw] md:max-w-[700px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>{currentSlideContent.title}</DialogTitle>
+          <DialogTitle className="text-xl sm:text-2xl font-bold">{currentSlideContent.title}</DialogTitle>
         </DialogHeader>
-        <div className="mt-4">
-          <p className="mb-4">{currentSlideContent.content}</p>
+        <div className="mt-4 space-y-4">
+          <p className="text-sm sm:text-base">{currentSlideContent.content}</p>
           
           {isSlideWithItems(currentSlideContent) && (
-            <div className="grid grid-cols-3 gap-4 mb-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {currentSlideContent.items.map((item, index) => (
-                <div key={index} className="border w-full aspect-[4/5] border-red-500 rounded-lg p-2">
-                  <img src={currentSlideContent.images[index]} alt={item.text} className="w-full mb-2 rounded-lg object-cover" />
-                  <p className="text-center">
-                    <span className="mr-2">{item.icon}</span>
+                <div key={index} className="border border-red-500 rounded-lg p-2">
+                  <div className="aspect-[4/5] mb-2">
+                    <img 
+                      src={currentSlideContent.images[index]} 
+                      alt={item.text} 
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                  <p className="text-center text-xs sm:text-sm">
+                    <span className="mr-1">{item.icon}</span>
                     {item.text}
                   </p>
                 </div>
@@ -90,15 +96,21 @@ const PhotoRequirementsModal: React.FC<PhotoRequirementsModalProps> = ({ isOpen,
           )}
           
           {!isSlideWithItems(currentSlideContent) && (
-            <div className="grid grid-cols-2 gap-4 w-full aspect-[4/5] mb-4">
+            <div className="grid grid-cols-2 gap-4">
               {currentSlideContent.images.map((img, index) => (
-                <img key={index} src={img} alt={`Example ${index + 1}`} className="rounded-lg object-cover" />
+                <div key={index} className="aspect-[4/5]">
+                  <img 
+                    src={img} 
+                    alt={`Example ${index + 1}`} 
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
               ))}
             </div>
           )}
           
           <div className="flex justify-between items-center mt-6">
-            <button onClick={prevSlide} className="bg-gray-200 px-4 py-2 rounded-lg">&larr;</button>
+            <button onClick={prevSlide} className="bg-gray-200 px-2 py-1 sm:px-4 sm:py-2 rounded-lg text-sm sm:text-base">&larr;</button>
             <div className="flex space-x-2">
               {slides.map((_, index) => (
                 <span
@@ -107,7 +119,7 @@ const PhotoRequirementsModal: React.FC<PhotoRequirementsModalProps> = ({ isOpen,
                 />
               ))}
             </div>
-            <button onClick={nextSlide} className="bg-gray-200 px-4 py-2 rounded-lg">&rarr;</button>
+            <button onClick={nextSlide} className="bg-gray-200 px-2 py-1 sm:px-4 sm:py-2 rounded-lg text-sm sm:text-base">&rarr;</button>
           </div>
         </div>
       </DialogContent>
