@@ -59,18 +59,20 @@ const PhotoRequirementsModal: React.FC<PhotoRequirementsModalProps> = ({ isOpen,
     return 'images' in slide;
   };
 
+  const currentSlideContent = slides[currentSlide];
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <div className="bg-white rounded-lg p-6 max-w-3xl w-full">
         <button onClick={onClose} className="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
           &times;
         </button>
-        <h2 className="text-2xl font-bold mb-4">{slides[currentSlide].title}</h2>
-        <p className="mb-4">{slides[currentSlide].content}</p>
+        <h2 className="text-2xl font-bold mb-4">{currentSlideContent.title}</h2>
+        <p className="mb-4">{currentSlideContent.content}</p>
         
-        {isSlideWithItems(slides[currentSlide]) && (
+        {isSlideWithItems(currentSlideContent) && (
           <div className="grid grid-cols-2 gap-4 mb-4">
-            {slides[currentSlide].items.map((item, index) => (
+            {currentSlideContent.items.map((item, index) => (
               <div key={index} className="flex items-center">
                 <span className="mr-2">{item.icon}</span>
                 <span>{item.text}</span>
@@ -79,9 +81,9 @@ const PhotoRequirementsModal: React.FC<PhotoRequirementsModalProps> = ({ isOpen,
           </div>
         )}
         
-        {isSlideWithImages(slides[currentSlide]) && (
+        {isSlideWithImages(currentSlideContent) && (
           <div className="grid grid-cols-2 gap-4 mb-4">
-            {slides[currentSlide].images.map((img, index) => (
+            {currentSlideContent.images.map((img, index) => (
               <img key={index} src={img} alt={`Example ${index + 1}`} className="rounded-lg" />
             ))}
           </div>
