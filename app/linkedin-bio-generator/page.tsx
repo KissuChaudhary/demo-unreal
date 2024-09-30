@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import LinkedInBioForm from '@/components/LinkedInBioForm';
-import Script from "next/script";
+import Script from 'next/script';
 import { ArrowRight, CheckCircle, Zap, Users, Sparkles, BookOpen, Briefcase, Target } from 'lucide-react';
 
 export const metadata = {
