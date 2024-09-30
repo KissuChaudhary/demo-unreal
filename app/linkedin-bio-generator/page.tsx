@@ -4,7 +4,7 @@ import Script from "next/script";
 import { ArrowRight, CheckCircle, Zap, Users, Sparkles, BookOpen, Briefcase, Target } from 'lucide-react';
 
 export const metadata = {
-  title: "LinkedIn Bio Generator | Create Professional LinkedIn Bios",
+  title: "LinkedIn Bio Generator | Create Professional LinkedIn Bios - Unrealshot AI",
   description: "Generate professional LinkedIn bios easily with our LinkedIn bio generator tool. Perfect for boosting your LinkedIn profile.",
 };
 
@@ -21,8 +21,8 @@ export default function LinkedInBioPage() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": "LinkedIn Bio Generator",
-          "description": metadata.description,
+          "name": "LinkedIn Bio Generator - Unrealshot AI",
+          "description": "Generate professional LinkedIn bios easily with our LinkedIn bio generator tool. Perfect for boosting your LinkedIn profile.",
           "url": "https://www.unrealshot.com/linkedin-bio-generator",
         })}
       </Script>
