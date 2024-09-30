@@ -1,8 +1,23 @@
 import React from 'react';
 import { Mail, MapPin } from 'lucide-react';
+import Script from 'next/script';
+
 
 const ContactPage = () => {
   return (
+    <>
+    {/* Structured Data Schema */}
+<Script id="schema-contact" type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Contact - UnrealShot AI",
+    "url": "https://www.unrealshot.com/contact-us",
+    "description": "Get in touch with the team at UnrealShot AI for support, inquiries, or feedback on our AI headshot generator."
+    
+  })}
+</Script>
+
     <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
@@ -57,6 +72,7 @@ const ContactPage = () => {
         </div>
       </div>
     </div>
+      </>
   );
 };
 
