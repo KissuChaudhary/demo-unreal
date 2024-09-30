@@ -29,13 +29,11 @@ export default async function LoginPage({
   const headersList = headers();
   const host = headersList.get("host");
 
-  const loginSchema = {
-    {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Login Page",
-  "description": "Login page for users to access their UnrealShot AI account."
-}
+ const loginSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Login Page",
+    "description": "Login page for users to access their UnrealShot AI account."
   };
 
   return (
