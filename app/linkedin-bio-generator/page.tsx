@@ -45,8 +45,7 @@ export default function LinkedInBioPage() {
 
       <div className="min-h-screen px-4 sm:px-6 lg:px-8" style={{ paddingBottom: '3rem' }}> 
         <LinkedInBioForm />
-      </div>
-      <div className="space-y-16">
+        <div className="space-y-16">
             <section>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">How Our AI LinkedIn Bio Generator Works</h2>
               <div className="grid md:grid-cols-2 gap-8">
@@ -152,6 +151,8 @@ export default function LinkedInBioPage() {
               </a>
             </section>
           </div>
+      </div>
+      
     </>
   );
 }
