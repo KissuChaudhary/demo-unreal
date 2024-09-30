@@ -80,7 +80,87 @@ export default function LinkedInBioForm() {
 
   // Rest of the component remains the same...
   
-  return (
-    // JSX remains the same...
+   return (
+    <div className="max-w-4xl mx-auto mt-10 p-8 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl shadow-2xl">
+      <h1 className="text-4xl font-extrabold mb-8 text-center text-indigo-800 tracking-tight">LinkedIn Bio Generator</h1>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {['name', 'currentRole', 'experience', 'skills', 'goals'].map((field) => (
+          <div key={field} className="relative">
+            <label htmlFor={field} className="block text-sm font-medium text-gray-700 mb-1 capitalize">
+              {field.split(/(?=[A-Z])/).join(' ')}
+            </label>
+            {field === 'experience' ? (
+              <textarea
+                id={field}
+                name={field}
+                value={formData[field]}
+                onChange={handleChange}
+                rows={3}
+                className={`block w-full px-4 py-3 rounded-md bg-white bg-opacity-50 border ${errors[field] ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm transition duration-150 ease-in-out`}
+                placeholder={`Enter your professional ${field}...`}
+              />
+            ) : (
+              <input
+                type="text"
+                id={field}
+                name={field}
+                value={formData[field]}
+                onChange={handleChange}
+                className={`block w-full px-4 py-3 rounded-md bg-white bg-opacity-50 border ${errors[field] ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm transition duration-150 ease-in-out`}
+                placeholder={`Enter your ${field.split(/(?=[A-Z])/).join(' ').toLowerCase()}...`}
+              />
+            )}
+            {errors[field] && (
+              <p className="mt-1 text-sm text-red-600 flex items-center">
+                <AlertCircle className="h-4 w-4 mr-1" />
+                {errors[field]}
+              </p>
+            )}
+          </div>
+        ))}
+        <button 
+          type="submit" 
+          className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out transform hover:scale-105"
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <>
+              <Loader2 className="animate-spin -ml-1 mr-3 h-6 w-6 text-white" />
+              Generating...
+            </>
+          ) : 'Generate Bio'}
+        </button>
+        {errors.submit && (
+          <p className="mt-2 text-sm text-red-600 flex items-center justify-center">
+            <AlertCircle className="h-4 w-4 mr-1" />
+            {errors.submit}
+          </p>
+        )}
+      </form>
+      {generatedBio && (
+        <div className="mt-8 p-6 bg-white bg-opacity-70 rounded-xl shadow-lg">
+          <div className="flex justify-between items-start mb-4">
+            <h2 className="text-2xl font-bold text-indigo-800">Your Generated Bio:</h2>
+            <button
+              onClick={handleCopy}
+              className="flex items-center text-sm text-indigo-600 hover:text-indigo-800 transition duration-150 ease-in-out"
+            >
+              {copied ? (
+                <>
+                  <Check className="h-5 w-5 mr-1" />
+                  Copied!
+                </>
+              ) : (
+                <>
+                  <Clipboard className="h-5 w-5 mr-1" />
+                  Copy
+                </>
+              )}
+            </button>
+          </div>
+          <p className="text-gray-700 whitespace-pre-wrap text-lg leading-relaxed">{generatedBio}</p>
+        </div>
+      )}
+    </div>
   );
 }
