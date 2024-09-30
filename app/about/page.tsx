@@ -69,7 +69,7 @@ const AboutUs: React.FC = () => {
         <section className="mb-6">
           <h2 className="text-xl font-semibold mb-2">The Birth of Unrealshot AI</h2>
           <p className="mb-4">
-            One evening, after weeks of brainstorming and countless cups of coffee, it hit us—what if AI could make something as personal as a headshot? What if you didn’t need an expensive photographer or a studio setup to get that professional, polished look? That’s when PicshotAI was born.
+            One evening, after weeks of brainstorming and countless cups of coffee, it hit us—what if AI could make something as personal as a headshot? What if you didn’t need an expensive photographer or a studio setup to get that professional, polished look? That’s when Unrealshot AI was born.
           </p>
           <p className="mb-4">
             We wanted to build something that made it effortless for people to present themselves in the best light, whether for their LinkedIn profile, job applications, or business websites. So, we started developing an AI headshot generator that could do just that—deliver high-quality, professional-grade images in just a few clicks. No fuss, no frills—just results.
