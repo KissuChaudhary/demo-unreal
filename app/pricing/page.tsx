@@ -48,6 +48,22 @@ const pricingOptions = [
 
 const Pricing = () => {
   return (
+    <>
+      {/* Structured Data Schema */}
+      <Script id="schema-pricing" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Pricing - UnrealShot AI",
+          "url": "https://www.unrealshot.com/pricing",
+          "description": "Discover affordable pricing options for professional AI-generated headshots at UnrealShot AI.",
+          "isPartOf": {
+          "@type": "WebSite",
+          "name": "UnrealShot AI - Best AI Headshot Generator",
+          "url": "https://www.unrealshot.com"
+          }
+        })}
+      </Script>
     <div className="w-full max-w-6xl mx-auto px-4 py-8">
       <h2 className="text-3xl font-bold text-indigo-900 text-center mb-2">Price for ‘Absolutely Stunning’ Professional Headshots</h2>
       <p className="text-center font-semibold text-gray-600 mb-8">
@@ -107,6 +123,7 @@ const Pricing = () => {
         <p className="mt-2 text-gray-600">Over 2,000 AI Headshots in Just One Month – Who Knew Perfection Was So Popular?</p>
       </div>
     </div>
+    </>
   );
 };
 
