@@ -5,20 +5,42 @@ import Head from "next/head";
 import Script from 'next/script';
 
 
+// Define metadata for the page
+export const metadata = {
+  title: "Refund Policy - UnrealShot AI",
+  description: "Read about our refund policy for AI-generated headshots at UnrealShot AI, including eligibility and refund process details.",
+};
+
 const RefundPolicy: React.FC = () => {
   return (
         <>
-    {/* Structured Data Schema */}
-<Script id="schema-contact" type="application/ld+json">
-  {JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Refund Policy - UnrealShot AI",
-    "url": "https://www.unrealshot.com/refund-policy",
-    "description": "Read about our refund policy for AI-generated headshots at UnrealShot AI, including eligibility and refund process details."
-    
-  })}
-</Script>
+ <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+      </Head>
+          
+             {/* Structured Data Schema */}
+      <Script id="schema-about-us" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Refund Policy - Unrealshot AI",
+          "description": "Learn how UnrealShot AI collects, uses, and protects your personal data.",
+          "url": "https://www.unrealshot.com/refund-policy",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Unrealshot AI",
+            "description": "Unrealshot AI is an AI-powered platform that generates professional headshots with ease, empowering individuals and businesses globally.",
+            "url": "https://www.unrealshot.com",
+            "founder": {
+              "@type": "Person",
+              "name": "The Unrealshot AI Team"
+            }
+          }
+        })}
+      </Script>
+
+
     <div className="flex-grow pb-6">
       <Head>
         <title>Refund Policy | Unrealshot AI</title>
