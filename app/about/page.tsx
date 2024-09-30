@@ -4,12 +4,19 @@ import React from "react";
 import Head from "next/head";
 import Script from "next/script";
 
+
+// Define metadata for the page
+export const metadata: Metadata = {
+  title: "About Us - Unrealshot AI",
+  description: "Learn more about the journey and team behind Unrealshot AI, the AI headshot generator helping users create professional-grade headshots worldwide.",
+};
+
 const AboutUs: React.FC = () => {
   return (
     <>
-      <Head>
-        <title>About Us | Unrealshot AI</title>
-        <meta name="description" content="Learn more about the team behind Unrealshot AI, the AI headshot generator." />
+     <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
       </Head>
 
       {/* Structured Data Schema */}
