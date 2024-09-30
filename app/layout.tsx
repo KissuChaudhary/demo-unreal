@@ -8,9 +8,9 @@ import NextTopLoader from "nextjs-toploader";
 import Script from 'next/script';
 
 export const metadata = {
-  title: "UnrealShot AI - Best AI Headshot Generator | Create Most Realistic Professional Headshots",
+  title: "#1 AI Headshot Generator | Create Most Realistic Professional Headshots with Unrealshot AI",
   description: "Create professional, high-quality AI-generated headshots in minutes with UnrealShot AI, our easy-to-use AI headshot generator. Perfect for businesses and individuals looking to elevate their profile with stunning, custom portraits.",
-  keywords: "AI headshots, AI headshot generator, headshot maker, professional headshot, online headshot, AI-powered headshot, professional headshots, resume photos, LinkedIn profile photos",
+  keywords: "AI headshots, AI headshot generator, Free AI headshot generator, headshot maker, professional headshot, online headshot, AI-powered headshot, professional headshots, resume photos, LinkedIn profile photos",
   authors: [{ name: "UnrealShot AI" }],
   robots: "index, follow",
   viewport: "width=device-width, initial-scale=1.0",
@@ -41,16 +41,59 @@ export default function RootLayout({ children }: any) {
       <body className="flex flex-col min-h-screen">
        <Script id="schema-website" type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "UnrealShot AI - Best AI Headshot Generator | Create Most Realistic Professional Headshots",
-            "url": "https://www.unrealshot.com",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://www.unrealshot.com/search?q={search_term_string}",
-              "query-input": "required name=search_term_string",
-            },
-          })}
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "UnrealShot AI - Best AI Headshot Generator",
+  "url": "https://www.unrealshot.com",
+  "mainEntity": [
+    {
+      "@type": "WebPage",
+      "name": "Home",
+      "url": "https://www.unrealshot.com"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Pricing",
+      "url": "https://www.unrealshot.com/pricing"
+    },
+    {
+      "@type": "WebPage",
+      "name": "About Us",
+      "url": "https://www.unrealshot.com/about"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Contact",
+      "url": "https://www.unrealshot.com/contact-us"
+    },
+    {
+      "@type": "WebPage",
+      "name": "FAQs",
+      "url": "https://www.unrealshot.com/faqs"
+    },
+     {
+      "@type": "WebPage",
+      "name": "Terms",
+      "url": "https://www.unrealshot.com/terms"
+    },
+     {
+      "@type": "WebPage",
+      "name": "Refunds",
+      "url": "https://www.unrealshot.com/refund-policy"
+    },
+     {
+      "@type": "WebPage",
+      "name": "Privacy Policy",
+      "url": "https://www.unrealshot.com/privacy-policy"
+    },
+     {
+      "@type": "WebPage",
+      "name": "Login",
+      "url": "https://www.unrealshot.com/login"
+    },
+  ]
+}
+)}
         </Script>
 
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-XGFT46LL3J" />
