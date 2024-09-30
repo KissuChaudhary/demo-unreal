@@ -46,7 +46,7 @@ export default function LinkedInBioPage() {
         <LinkedInBioForm />
 
         {/* SEO content */}
-        <section className="mt-12">
+        <section className="max-w-7xl mx-auto mt-12">
           <h2 className="text-2xl font-semibold">Generate Your Perfect LinkedIn Bio with Our Free AI Tool</h2>
           <p className="mt-4">
             Your LinkedIn bio plays a crucial role in making a strong first impression on potential employers, clients, or collaborators. If you're struggling with what to say, don’t worry—our free LinkedIn bio generator powered by AI is here to help. In just a few clicks, you can create a professional and personalized bio that showcases your skills and experience, without spending hours thinking of the right words.
