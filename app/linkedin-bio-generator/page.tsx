@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import LinkedInBioForm from '@/components/LinkedInBioForm';
 import Script from "next/script";
+import { ArrowRight, CheckCircle, Users, Zap, Sparkles } from 'lucide-react';
+
 
 export const metadata = {
   title: "LinkedIn Bio Generator | Create Professional LinkedIn Bios",
