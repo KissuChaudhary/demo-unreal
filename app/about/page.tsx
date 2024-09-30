@@ -4,30 +4,33 @@ import React from "react";
 import Head from "next/head";
 import Script from "next/script";
 
-
 const AboutUs: React.FC = () => {
   return (
     <>
-      {/* Structured Data Schema */}
+      <Head>
+        <title>About Us | Unrealshot AI</title>
+        <meta name="description" content="Learn more about the team behind Unrealshot AI, the AI headshot generator." />
+      </Head>
 
-          <Script id="schema-pricing" type="application/ld+json">
+      {/* Structured Data Schema */}
+      <Script id="schema-about-us" type="application/ld+json">
         {JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "About Us - Unrealshot AI",
-  "description": "Learn more about the journey and team behind Unrealshot AI, the AI headshot generator helping users create professional-grade headshots worldwide.",
-  "url": "https://www.unrealshot.com/about",
-  "mainEntity": {
-    "@type": "Organization",
-    "name": "Unrealshot AI",
-    "description": "Unrealshot AI is an AI-powered platform that generates professional headshots with ease, empowering individuals and businesses globally.",
-    "url": "https://www.unrealshot.com",
-    "founder": {
-      "@type": "Person",
-      "name": "The Unrealshot AI Team"
-    }
-  }
-})}
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "About Us - Unrealshot AI",
+          "description": "Learn more about the journey and team behind Unrealshot AI, the AI headshot generator helping users create professional-grade headshots worldwide.",
+          "url": "https://www.unrealshot.com/about",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Unrealshot AI",
+            "description": "Unrealshot AI is an AI-powered platform that generates professional headshots with ease, empowering individuals and businesses globally.",
+            "url": "https://www.unrealshot.com",
+            "founder": {
+              "@type": "Person",
+              "name": "The Unrealshot AI Team"
+            }
+          }
+        })}
       </Script>
 
 
