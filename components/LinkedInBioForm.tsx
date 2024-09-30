@@ -80,7 +80,7 @@ export default function LinkedInBioForm() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto mt-10 p-8">
+    <div className="max-w-7xl mx-auto mt-10">
       <h1 className="text-4xl font-extrabold mb-8 text-center text-gray-800 tracking-tight">LinkedIn Bio Generator</h1>
       <div className="flex flex-col md:flex-row gap-8">
         <div className="w-full md:w-1/2 h-full p-6 border border-gray-200 rounded-xl shadow-sm">
