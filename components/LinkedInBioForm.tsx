@@ -29,16 +29,17 @@ export default function LinkedInBioForm() {
   const [errors, setErrors] = useState<Errors>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    if (errors[e.target.name]) {
-      setErrors({ ...errors, [e.target.name]: '' });
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }));
     }
   };
 
   const validateForm = (): boolean => {
     const newErrors: Errors = {};
-    Object.keys(formData).forEach(key => {
-      if (!formData[key as keyof FormData].trim()) {
+    (Object.keys(formData) as Array<keyof FormData>).forEach(key => {
+      if (!formData[key].trim()) {
         newErrors[key] = `${key.charAt(0).toUpperCase() + key.slice(1)} is required`;
       }
     });
@@ -78,13 +79,11 @@ export default function LinkedInBioForm() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // Rest of the component remains the same...
-  
-   return (
+  return (
     <div className="max-w-4xl mx-auto mt-10 p-8 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl shadow-2xl">
       <h1 className="text-4xl font-extrabold mb-8 text-center text-indigo-800 tracking-tight">LinkedIn Bio Generator</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
-        {['name', 'currentRole', 'experience', 'skills', 'goals'].map((field) => (
+        {(Object.keys(formData) as Array<keyof FormData>).map((field) => (
           <div key={field} className="relative">
             <label htmlFor={field} className="block text-sm font-medium text-gray-700 mb-1 capitalize">
               {field.split(/(?=[A-Z])/).join(' ')}
