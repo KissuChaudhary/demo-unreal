@@ -29,8 +29,8 @@ export default function LinkedInBioPage() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "LinkedIn Bio Generator",
-          "description": "An easy-to-use tool for generating LinkedIn bios.",
+          "name": "Free LinkedIn Bio Generator",
+          "description": "An easy-to-use Free AI tool for generating professional LinkedIn bios in seconds.",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "All",
           "url": "https://www.unrealshot.com/linkedin-bio-generator",
