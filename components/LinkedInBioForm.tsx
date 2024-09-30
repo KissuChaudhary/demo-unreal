@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Loader2, Clipboard, Check, AlertCircle } from 'lucide-react';
 
 interface FormData {
@@ -15,6 +15,18 @@ interface Errors {
   [key: string]: string;
 }
 
+interface WordLimits {
+  [key: string]: number;
+}
+
+const wordLimits: WordLimits = {
+  name: 10,
+  currentRole: 15,
+  experience: 100,
+  skills: 50,
+  goals: 50
+};
+
 export default function LinkedInBioForm() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -23,16 +35,32 @@ export default function LinkedInBioForm() {
     skills: '',
     goals: ''
   });
+  const [wordCounts, setWordCounts] = useState<FormData>({
+    name: '0',
+    currentRole: '0',
+    experience: '0',
+    skills: '0',
+    goals: '0'
+  });
   const [generatedBio, setGeneratedBio] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
   const [errors, setErrors] = useState<Errors>({});
 
+  const countWords = (text: string): number => {
+    return text.trim().split(/\s+/).filter(word => word !== '').length;
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
+    const wordCount = countWords(value);
+    
+    if (wordCount <= wordLimits[name]) {
+      setFormData(prev => ({ ...prev, [name]: value }));
+      setWordCounts(prev => ({ ...prev, [name]: wordCount.toString() }));
+      if (errors[name]) {
+        setErrors(prev => ({ ...prev, [name]: '' }));
+      }
     }
   };
 
@@ -111,12 +139,17 @@ export default function LinkedInBioForm() {
                     placeholder={`Enter your ${field.split(/(?=[A-Z])/).join(' ').toLowerCase()}...`}
                   />
                 )}
-                {errors[field] && (
-                  <p className="mt-1 text-sm text-red-600 flex items-center">
-                    <AlertCircle className="h-4 w-4 mr-1" />
-                    {errors[field]}
+                <div className="flex justify-between mt-1">
+                  {errors[field] && (
+                    <p className="text-sm text-red-600 flex items-center">
+                      <AlertCircle className="h-4 w-4 mr-1" />
+                      {errors[field]}
+                    </p>
+                  )}
+                  <p className={`text-sm ${parseInt(wordCounts[field]) === wordLimits[field] ? 'text-orange-500' : 'text-gray-500'}`}>
+                    {wordCounts[field]}/{wordLimits[field]} words
                   </p>
-                )}
+                </div>
               </div>
             ))}
             <button 
