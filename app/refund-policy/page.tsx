@@ -1,10 +1,24 @@
-// app/documentation/page.tsx
+// app/refund-policy/page.tsx
 
 import React from "react";
 import Head from "next/head";
+import Script from 'next/script';
+
 
 const RefundPolicy: React.FC = () => {
   return (
+        <>
+    {/* Structured Data Schema */}
+<Script id="schema-contact" type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Refund Policy - UnrealShot AI",
+    "url": "https://www.unrealshot.com/refund-policy",
+    "description": "Read about our refund policy for AI-generated headshots at UnrealShot AI, including eligibility and refund process details."
+    
+  })}
+</Script>
     <div className="flex-grow pb-6">
       <Head>
         <title>Refund Policy | Unrealshot AI</title>
@@ -72,7 +86,8 @@ const RefundPolicy: React.FC = () => {
         </section>
       </main>
       </div>
-  );
+        </>
+          );
 }
 
 export default RefundPolicy;
