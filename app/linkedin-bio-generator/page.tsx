@@ -111,7 +111,7 @@ export default function LinkedInBioPage() {
           <h3 className="text-xl font-semibold mt-8">Explore More with UnrealShot AI</h3>
           <p className="mt-4">
   Want to take your LinkedIn profile to the next level? After generating your perfect bio, head over to our homepage and try our 
-  <a href="https://www.unrealshot.com/" className="text-blue-600 underline hover:text-indigo-800">AI headshot generator</a> 
+  <a href="https://www.unrealshot.com/" className="text-blue-600 underline hover:text-indigo-800"> AI headshot generator </a> 
   for professional, AI-generated headshots that enhance your LinkedIn profile.
 </p>
 
