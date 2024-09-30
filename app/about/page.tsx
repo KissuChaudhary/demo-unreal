@@ -6,7 +6,7 @@ import Script from "next/script";
 
 
 // Define metadata for the page
-export const metadata: Metadata = {
+export const metadata = {
   title: "About Us - Unrealshot AI",
   description: "Learn more about the journey and team behind Unrealshot AI, the AI headshot generator helping users create professional-grade headshots worldwide.",
 };
