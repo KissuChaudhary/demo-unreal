@@ -1,6 +1,4 @@
-'use client';
-
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Loader2, Clipboard, Check, AlertCircle } from 'lucide-react';
 
 interface FormData {
@@ -115,9 +113,14 @@ export default function LinkedInBioForm() {
           <form onSubmit={handleSubmit} className="space-y-6">
             {(Object.keys(formData) as Array<keyof FormData>).map((field) => (
               <div key={field} className="relative">
-                <label htmlFor={field} className="block text-sm font-medium text-gray-700 mb-1 capitalize">
-                  {field.split(/(?=[A-Z])/).join(' ')}
-                </label>
+                <div className="flex justify-between items-center mb-1">
+                  <label htmlFor={field} className="block text-sm font-medium text-gray-700 capitalize">
+                    {field.split(/(?=[A-Z])/).join(' ')}
+                  </label>
+                  <p className={`text-sm ${parseInt(wordCounts[field]) === wordLimits[field] ? 'text-orange-500' : 'text-gray-500'}`}>
+                    {wordCounts[field]}/{wordLimits[field]} words
+                  </p>
+                </div>
                 {field === 'experience' ? (
                   <textarea
                     id={field}
@@ -139,17 +142,12 @@ export default function LinkedInBioForm() {
                     placeholder={`Enter your ${field.split(/(?=[A-Z])/).join(' ').toLowerCase()}...`}
                   />
                 )}
-                <div className="flex justify-end mt-1">
-                  {errors[field] && (
-                    <p className="text-sm text-red-600 flex items-center">
-                      <AlertCircle className="h-4 w-4 mr-1" />
-                      {errors[field]}
-                    </p>
-                  )}
-                  <p className={`text-sm ${parseInt(wordCounts[field]) === wordLimits[field] ? 'text-orange-500' : 'text-gray-500'}`}>
-                    {wordCounts[field]}/{wordLimits[field]} words
+                {errors[field] && (
+                  <p className="mt-1 text-sm text-red-600 flex items-center">
+                    <AlertCircle className="h-4 w-4 mr-1" />
+                    {errors[field]}
                   </p>
-                </div>
+                )}
               </div>
             ))}
             <button 
