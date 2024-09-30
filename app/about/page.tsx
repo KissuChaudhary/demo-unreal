@@ -36,10 +36,7 @@ const AboutUs: React.FC = () => {
 
       
     <div className="flex-grow pb-6">
-      <Head>
-        <title>About Us | Unrealshot AI</title>
-        <meta name="description" content="Learn more about the team behind Unrealshot AI, the AI headshot generator." />
-      </Head>
+
       <main className="max-w-[80rem] px-4 sm:px-6 lg:px-8 mx-auto">
         <h1 className="text-main text-6xl font-bold mx-auto mb-10 text-indigo-900 lg:mb-14">
           About Us
