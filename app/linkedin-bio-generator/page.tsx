@@ -1,23 +1,15 @@
-import Head from 'next/head';
 import LinkedInBioForm from '@/components/LinkedInBioForm';
 import Script from "next/script";
 import { ArrowRight, CheckCircle, Zap, Users, Sparkles, BookOpen, Briefcase, Target } from 'lucide-react';
 
-
 export const metadata = {
   title: "LinkedIn Bio Generator | Create Professional LinkedIn Bios",
-  description: "Generate professional LinkedIn bios easily with our LinkedIn bio generator tool. Perfect for boosting your LinkedIn profile.",
+  description: "Generate professional LinkedIn bios easily with our free AI LinkedIn bio generator tool. Perfect for boosting your LinkedIn profile.",
 };
 
 export default function LinkedInBioPage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-      </Head>
-
-      {/* Schema for LinkedIn Bio Generator */}
       <Script id="schema-linkedin-bio" type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -27,7 +19,6 @@ export default function LinkedInBioPage() {
           "url": "https://www.unrealshot.com/linkedin-bio-generator"
         })}
       </Script>
-
       <Script id="schema-linkedin-webapp" type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -44,10 +35,15 @@ export default function LinkedInBioPage() {
           }
         })}
       </Script>
-
       <div className="min-h-screen bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-           
+          <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+            Generate Your Perfect LinkedIn Bio with Our Free AI Tool
+          </h1>
+          <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+            Your LinkedIn bio plays a crucial role in making a strong first impression on potential employers, clients, or collaborators. If you're struggling with what to say, don't worry—our free LinkedIn bio generator powered by AI is here to help.
+          </p>
+          
           <div id="generator" className="bg-white shadow-xl rounded-lg p-8 mb-16">
             <LinkedInBioForm />
           </div>
