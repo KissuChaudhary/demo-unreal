@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import LinkedInBioForm from '@/components/LinkedInBioForm';
+import Script from "next/script";
+
 
 export default function LinkedInBioPage() {
   return (
