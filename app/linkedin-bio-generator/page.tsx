@@ -3,7 +3,7 @@ import LinkedInBioForm from '@/components/LinkedInBioForm';
 import Script from 'next/script';
 
 export const metadata = {
-  title: "LinkedIn Bio Generator | Create Professional LinkedIn Bios - Unrealshot AI",
+  title: "Free LinkedIn Bio Generator | Create Professional LinkedIn Bios - Unrealshot AI",
   description: "Generate professional LinkedIn bios easily with our LinkedIn bio generator tool. Perfect for boosting your LinkedIn profile.",
 };
 
@@ -20,7 +20,7 @@ export default function LinkedInBioPage() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": "LinkedIn Bio Generator - Unrealshot AI",
+          "name": "Free LinkedIn Bio Generator - Unrealshot AI",
           "description": "Generate professional LinkedIn bios easily with our LinkedIn bio generator tool. Perfect for boosting your LinkedIn profile.",
           "url": "https://www.unrealshot.com/linkedin-bio-generator",
         })}
