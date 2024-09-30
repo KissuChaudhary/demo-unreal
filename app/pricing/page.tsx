@@ -5,6 +5,10 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Check, Star } from "lucide-react";
 import Script from "next/script";
 
+export const metadata = {
+  title: "Pricing - UnrealShot AI",
+  description: "Discover affordable pricing options for professional AI-generated headshots at UnrealShot AI.",
+};
 
 const pricingOptions = [
   {
@@ -50,7 +54,12 @@ const pricingOptions = [
 
 const Pricing = () => {
   return (
-    <>
+  <>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+      </Head>
+
       {/* Structured Data Schema */}
       <Script id="schema-pricing" type="application/ld+json">
         {JSON.stringify({
@@ -60,9 +69,9 @@ const Pricing = () => {
           "url": "https://www.unrealshot.com/pricing",
           "description": "Discover affordable pricing options for professional AI-generated headshots at UnrealShot AI.",
           "isPartOf": {
-          "@type": "WebSite",
-          "name": "UnrealShot AI - Best AI Headshot Generator",
-          "url": "https://www.unrealshot.com"
+            "@type": "WebSite",
+            "name": "UnrealShot AI - Best AI Headshot Generator",
+            "url": "https://www.unrealshot.com"
           }
         })}
       </Script>
