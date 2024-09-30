@@ -2,6 +2,8 @@
 import React from "react";
 import StripePricingTable from "@/components/stripe/StripeTable";
 import Head from "next/head";
+import Script from 'next/script';
+
 
 const faqItems = [
   {
@@ -71,14 +73,17 @@ const faqSchema = {
 
 const Faqs = () => {
   return (
-    <>
+     <>
       <Head>
         <title>FAQs Page | Unrealshot AI</title>
         <meta name="description" content="Frequently asked questions about Unrealshot AI headshot generator service." />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
+      </Head>
+
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       </Head>
 
       <div className="flex-grow px-4 pb-6">
