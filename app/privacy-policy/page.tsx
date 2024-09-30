@@ -2,9 +2,22 @@
 
 import React from "react";
 import Head from "next/head";
+import Script from 'next/script';
 
 const PrivacyPolicy: React.FC = () => {
   return (
+        <>
+    {/* Structured Data Schema */}
+<Script id="schema-contact" type="application/ld+json">
+  {JSON.stringify({
+   "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy - UnrealShot AI",
+    "url": "https://www.unrealshot.com/privacy-policy",
+    "description": "Learn how UnrealShot AI collects, uses, and protects your personal data."
+    
+  })}
+</Script>
     <div className="flex-grow pb-6">
       <Head>
         <title>Privacy Policy | Unrealshot AI Headshot Generator</title>
@@ -114,6 +127,7 @@ const PrivacyPolicy: React.FC = () => {
         </section>
       </main>
     </div>
+        </>
   );
 }
 
