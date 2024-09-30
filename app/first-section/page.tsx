@@ -67,7 +67,7 @@ const FirstSection = () => {
         </div>
 
         <p className="text-lg md:text-xl mt-5 mb-5 bg-clip-text font-bold">
-          #1 Professional AI Headshots Without the ‘Professional’ Part.
+          #1 Professional AI Headshots Without the Professionals.
         </p>
 
         <div className="text-main text-6xl font-bold text-center text-indigo-900 mb-4">
