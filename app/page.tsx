@@ -56,7 +56,7 @@ export default async function Index() {
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.8",
-            "reviewCount": "89",
+            "reviewCount": "92",
           },
           "author": {
             "@type": "Organization",
