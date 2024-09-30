@@ -4,19 +4,41 @@ import React from "react";
 import Head from "next/head";
 import Script from 'next/script';
 
+
+// Define metadata for the page
+export const metadata = {
+  title: "Terms - UnrealShot AI",
+  description: "Review the terms and conditions for using UnrealShot AI, our AI headshot generator service.",
+};
+
 const TermsOfService: React.FC = () => {
   return (
         <>
-    {/* Structured Data Schema */}
-<Script id="schema-contact" type="application/ld+json">
-  {JSON.stringify({
-   "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Terms - UnrealShot AI",
-    "url": "https://www.unrealshot.com/terms",
-    "description": "Review the terms and conditions for using UnrealShot AI, our AI headshot generator service."
-  })}
-</Script>
+ <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+      </Head>
+          
+             {/* Structured Data Schema */}
+      <Script id="schema-about-us" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Terms - UnrealShot AI",
+          "description": "Review the terms and conditions for using UnrealShot AI, our AI headshot generator service.",
+          "url": "https://www.unrealshot.com/refund-policy",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Unrealshot AI",
+            "description": "Unrealshot AI is an AI-powered platform that generates professional headshots with ease, empowering individuals and businesses globally.",
+            "url": "https://www.unrealshot.com",
+            "founder": {
+              "@type": "Person",
+              "name": "Unrealshot AI"
+            }
+          }
+        })}
+      </Script>
     <div className="flex-grow pb-6">
       <Head>
         <title>Terms of Service | Unrealshot AI</title>
