@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10 pt-18">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <footer className="bg-gray-900 text-gray-300 py-10 pt-18">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
         {/* Logo and Description */}
         <div>
           <div className="footer-logo mb-5">
@@ -69,7 +69,17 @@ const Footer = () => {
       
           </ul>
         </div>
-
+ {/* Free AI Tools Links */}
+        <div>
+          <h3 className="text-white font-semibold mb-4">Free AI Tools</h3>
+          <ul className="space-y-2">
+            <li>
+              <a href="/linkedin-bio-generator" className="hover:text-white transition">
+                LinkedIn Bio Generator
+              </a>
+            </li>
+          </ul>
+        </div>
        {/* Social Links */}
 <div>
   <h3 className="text-white font-semibold mb-4">Follow Us</h3>
