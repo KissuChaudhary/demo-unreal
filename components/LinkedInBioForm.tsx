@@ -139,7 +139,7 @@ export default function LinkedInBioForm() {
                     placeholder={`Enter your ${field.split(/(?=[A-Z])/).join(' ').toLowerCase()}...`}
                   />
                 )}
-                <div className="flex justify-between mt-1">
+                <div className="flex justify-end mt-1">
                   {errors[field] && (
                     <p className="text-sm text-red-600 flex items-center">
                       <AlertCircle className="h-4 w-4 mr-1" />
