@@ -110,6 +110,7 @@ export default function LinkedInBioForm() {
   return (
     <div className="max-w-7xl mx-auto mt-10">
       <h1 className="text-4xl font-extrabold mb-8 text-center text-gray-800 tracking-tight">LinkedIn Bio Generator</h1>
+      <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">Effortlessly Create a Standout LinkedIn Bio with Unrealshot AI – Personalized, Professional, and Instant. </p>
       <div className="flex flex-col md:flex-row gap-8">
         <div className="w-full md:w-1/2 h-full p-6 border border-gray-200 rounded-xl shadow-sm">
           <form onSubmit={handleSubmit} className="space-y-6">
