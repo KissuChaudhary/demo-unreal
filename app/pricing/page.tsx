@@ -4,6 +4,8 @@ import React from 'react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, Star } from "lucide-react";
 import Script from "next/script";
+import Head from "next/head";
+
 
 export const metadata = {
   title: "Pricing - UnrealShot AI",
@@ -52,7 +54,7 @@ const pricingOptions = [
   }
 ];
 
-const Pricing = () => {
+const Pricing: React.FC = () => {
   return (
   <>
       <Head>
