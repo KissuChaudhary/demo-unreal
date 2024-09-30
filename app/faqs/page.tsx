@@ -73,7 +73,7 @@ const faqSchema = {
 
 const Faqs = () => {
   return (
-     <>
+    <>
       <Head>
         <title>FAQs Page | Unrealshot AI</title>
         <meta name="description" content="Frequently asked questions about Unrealshot AI headshot generator service." />
@@ -84,7 +84,6 @@ const Faqs = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      </Head>
 
       <div className="flex-grow px-4 pb-6">
         {/* Title */}
