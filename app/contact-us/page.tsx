@@ -1,22 +1,43 @@
 import React from 'react';
 import { Mail, MapPin } from 'lucide-react';
-import Script from 'next/script';
+import Head from "next/head";
+import Script from "next/script";
 
 
-const ContactPage = () => {
+// Define metadata for the page
+export const metadata = {
+  title: "Contact - UnrealShot AI",
+  description: "Get in touch with the team at UnrealShot AI for support, inquiries, or feedback on our AI headshot generator.",
+};
+
+const ContactPage: React.FC = () => {
   return (
     <>
-    {/* Structured Data Schema */}
-<Script id="schema-contact" type="application/ld+json">
-  {JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Contact - UnrealShot AI",
-    "url": "https://www.unrealshot.com/contact-us",
-    "description": "Get in touch with the team at UnrealShot AI for support, inquiries, or feedback on our AI headshot generator."
-    
-  })}
-</Script>
+     <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+      </Head>
+
+      {/* Structured Data Schema */}
+      <Script id="schema-about-us" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Contact - Unrealshot AI",
+          "description": Get in touch with the team at UnrealShot AI for support, inquiries, or feedback on our AI headshot generator.",
+          "url": "https://www.unrealshot.com/contact-us",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Unrealshot AI",
+            "description": "Unrealshot AI is an AI-powered platform that generates professional headshots with ease, empowering individuals and businesses globally.",
+            "url": "https://www.unrealshot.com",
+            "founder": {
+              "@type": "Person",
+              "name": "The Unrealshot AI Team"
+            }
+          }
+        })}
+      </Script>
 
     <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
