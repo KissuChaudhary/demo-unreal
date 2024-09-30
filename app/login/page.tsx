@@ -3,6 +3,8 @@ import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { Database } from "../../types/supabase";
 import { Login } from "./components/Login";
+import Script from 'next/script';
+
 
 export const dynamic = "force-dynamic";
 
@@ -27,9 +29,28 @@ export default async function LoginPage({
   const headersList = headers();
   const host = headersList.get("host");
 
+  const loginSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Login Page",
+    "description": "Login to your Unrealshot AI account",
+    "url": `https://${host}/login`,
+    "mainEntity": {
+      "@type": "AuthorizationService",
+      "name": "Unrealshot AI Login"
+    }
+  };
+
   return (
+    <>
+      <Script
+        id="login-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(loginSchema) }}
+      />
     <div className="flex flex-col flex-1 w-full ">
       <Login host={host} searchParams={searchParams} />
     </div>
+    </>
   );
 }
