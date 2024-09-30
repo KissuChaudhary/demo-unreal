@@ -1,15 +1,21 @@
+import Head from 'next/head';
 import LinkedInBioForm from '@/components/LinkedInBioForm';
 import Script from "next/script";
 import { ArrowRight, CheckCircle, Zap, Users, Sparkles, BookOpen, Briefcase, Target } from 'lucide-react';
 
 export const metadata = {
   title: "LinkedIn Bio Generator | Create Professional LinkedIn Bios",
-  description: "Generate professional LinkedIn bios easily with our free AI LinkedIn bio generator tool. Perfect for boosting your LinkedIn profile.",
+  description: "Generate professional LinkedIn bios easily with our LinkedIn bio generator tool. Perfect for boosting your LinkedIn profile.",
 };
 
 export default function LinkedInBioPage() {
   return (
     <>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+      </Head>
+      {/* Schema for LinkedIn Bio Generator */}
       <Script id="schema-linkedin-bio" type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -149,9 +155,6 @@ export default function LinkedInBioPage() {
               <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
                 Creating a LinkedIn bio doesn't have to be a challenge. With our free LinkedIn bio generator, you'll have a professional bio ready in seconds. Take the guesswork out of writing, and let AI do the work for you.
               </p>
-              <a href="#generator" className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition duration-300">
-                Try It Now
-              </a>
             </section>
           </div>
         </div>
