@@ -2,9 +2,21 @@
 
 import React from "react";
 import Head from "next/head";
+import Script from 'next/script';
 
 const TermsOfService: React.FC = () => {
   return (
+        <>
+    {/* Structured Data Schema */}
+<Script id="schema-contact" type="application/ld+json">
+  {JSON.stringify({
+   "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Terms - UnrealShot AI",
+    "url": "https://www.unrealshot.com/terms",
+    "description": "Review the terms and conditions for using UnrealShot AI, our AI headshot generator service."
+  })}
+</Script>
     <div className="flex-grow pb-6">
       <Head>
         <title>Terms of Service | Unrealshot AI</title>
@@ -91,6 +103,7 @@ const TermsOfService: React.FC = () => {
         </section>
       </main>
     </div>
+        </>
   );
 }
 
