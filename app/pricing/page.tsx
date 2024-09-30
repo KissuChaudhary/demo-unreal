@@ -3,6 +3,8 @@ import { Button } from "../../components/ui/button";
 import React from 'react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, Star } from "lucide-react";
+import Script from "next/script";
+
 
 const pricingOptions = [
   {
