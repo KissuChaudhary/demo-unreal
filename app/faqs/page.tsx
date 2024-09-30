@@ -71,12 +71,18 @@ const faqSchema = {
   })),
 };
 
+// Define metadata for the page
+export const metadata = {
+  title: "FAQs about UnrealShot AI",
+  description: "Have Questions about Unrealshot AI function? We've Got Answers!",
+};
+
 const Faqs = () => {
   return (
     <>
-      <Head>
-        <title>FAQs Page | Unrealshot AI</title>
-        <meta name="description" content="Frequently asked questions about Unrealshot AI headshot generator service." />
+       <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
       </Head>
 
       <Script
