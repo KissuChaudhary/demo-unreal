@@ -8,7 +8,7 @@
 
 <url>
   <loc>https://www.unrealshot.com/</loc>
-  <lastmod>2024-09-08T17:40:59+00:00</lastmod>
+  <lastmod>2024-10-01T17:40:59+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
@@ -53,13 +53,32 @@
 </url>
 <url>
   <loc>https://www.unrealshot.com/overview</loc>
-  <lastmod>2024-09-08T17:40:59+00:00</lastmod>
+  <lastmod>2024-10-01T17:33:49+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.unrealshot.com/linkedin-bio-generator</loc>
-  <lastmod>2024-09-29T23:40:59+00:00</lastmod>
+  <lastmod>2024-10-01T23:22:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
-
+      <url>
+  <loc>https://www.unrealshot.com/linkedin-headline-generator</loc>
+  <lastmod>2024-10-01T23:38:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+      <url>
+  <loc>https://www.unrealshot.com/linkedin-post-generator</loc>
+  <lastmod>2024-10-01T23:40:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+         <url>
+  <loc>https://www.unrealshot.com/instagram-bio-generator</loc>
+  <lastmod>2024-10-01T23:42:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+   <url>
+  <loc>https://www.unrealshot.com/instagram-caption-generator</loc>
+  <lastmod>2024-10-01T23:45:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
 </urlset>
