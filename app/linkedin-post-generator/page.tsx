@@ -1,14 +1,21 @@
 import Head from 'next/head';
 import LinkedInPostForm from '@/components/LinkedInPostForm';
 import Script from 'next/script';
-import { Lightbulb, Clock, Calendar, Repeat, DollarSign, Target } from 'lucide-react';
+import { Lightbulb, Clock, Calendar, Repeat, DollarSign, Target, LucideIcon } from 'lucide-react';
+import React from 'react';
 
 export const metadata = {
   title: "Free LinkedIn Post Generator | Create Engaging LinkedIn Posts - Unrealshot AI",
   description: "Generate compelling LinkedIn posts easily with our LinkedIn post generator tool. Perfect for boosting your LinkedIn engagement.",
 };
 
-const BenefitCard = ({ icon, title, description }) => (
+interface BenefitCardProps {
+  icon: React.ReactElement<LucideIcon>;
+  title: string;
+  description: string;
+}
+
+const BenefitCard: React.FC<BenefitCardProps> = ({ icon, title, description }) => (
   <div className="bg-gray-50 p-6 rounded-lg">
     <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4">
       {icon}
@@ -18,7 +25,13 @@ const BenefitCard = ({ icon, title, description }) => (
   </div>
 );
 
-const StepItem = ({ number, title, description }) => (
+interface StepItemProps {
+  number: string;
+  title: string;
+  description: string;
+}
+
+const StepItem: React.FC<StepItemProps> = ({ number, title, description }) => (
   <div className="flex mb-8">
     <div className="flex-shrink-0 mr-4">
       <div className="flex items-center justify-center w-8 h-8 rounded-full bg-indigo-500 text-white">
