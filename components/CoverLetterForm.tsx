@@ -96,25 +96,25 @@ export default function CoverLetterForm() {
 
     setIsLoading(true);
     try {
-      const response = await fetch('/api/generate-cover-letter', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ ...formData, tone }),
-      });
-      if (!response.ok) {
-        throw new Error('Failed to generate cover letter');
-      }
-      const data = await response.json();
-      setGeneratedCoverLetter(data.coverLetter);
-    } catch (error) {
-      console.error('Error:', error);
-      setErrors({ submit: 'Failed to generate cover letter. Please try again.' });
-    } finally {
-      setIsLoading(false);
+      const response = await fetch('/api/generate-linkedin-bio', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ...formData, tone }),
+    });
+    if (!response.ok) {
+      throw new Error('Failed to generate cover letter');
     }
-  };
+    const data = await response.json();
+    setGeneratedCoverLetter(data.coverLetter);
+  } catch (error) {
+    console.error('Error:', error);
+    setErrors({ submit: 'Failed to generate cover letter. Please try again.' });
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   const handleCopy = () => {
     navigator.clipboard.writeText(generatedCoverLetter);
