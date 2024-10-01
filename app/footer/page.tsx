@@ -78,6 +78,26 @@ const Footer = () => {
                 LinkedIn Bio Generator
               </a>
             </li>
+             <li>
+              <a href="/linkedin-headline-generator" className="hover:text-white transition">
+                LinkedIn Headline Generator
+              </a>
+            </li>
+             <li>
+              <a href="/linkedin-post-generator" className="hover:text-white transition">
+                LinkedIn Post Generator
+              </a>
+            </li>
+             <li>
+              <a href="/instagram-bio-generator" className="hover:text-white transition">
+                Instagram Bio Generator
+              </a>
+            </li>
+             <li>
+              <a href="/instagram-caption-generator" className="hover:text-white transition">
+                Instagram Caption Generator
+              </a>
+            </li>
           </ul>
         </div>
        {/* Social Links */}
