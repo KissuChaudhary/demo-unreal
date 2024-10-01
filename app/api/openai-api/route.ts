@@ -15,7 +15,14 @@ type PostRequest = {
   callToAction: string;
 };
 
-type Request = BioRequest | PostRequest;
+type HeadlineRequest = {
+  currentRole: string;
+  keySkills: string;
+  industry: string;
+  uniqueValue: string;
+};
+
+type Request = BioRequest | PostRequest | HeadlineRequest;
 
 export async function POST(request: NextRequest) {
   const body: Request & { tool: string } = await request.json();
@@ -29,6 +36,9 @@ export async function POST(request: NextRequest) {
       break;
     case 'linkedinPost':
       messages = createPostMessages(data as PostRequest);
+      break;
+    case 'linkedinHeadline':
+      messages = createHeadlineMessages(data as HeadlineRequest);
       break;
     default:
       return NextResponse.json({ error: "Invalid tool specified" }, { status: 400 });
@@ -55,10 +65,17 @@ export async function POST(request: NextRequest) {
     const responseData = await response.json();
     const content = responseData.choices[0].message.content.trim();
 
-    return NextResponse.json(tool === 'linkedinBio' ? { bio: content } : { post: content });
+    switch (tool) {
+      case 'linkedinBio':
+        return NextResponse.json({ bio: content });
+      case 'linkedinPost':
+        return NextResponse.json({ post: content });
+      case 'linkedinHeadline':
+        return NextResponse.json({ headline: content });
+    }
   } catch (error) {
     console.error('Error:', error);
-    return NextResponse.json({ error: `An error occurred while generating the ${tool === 'linkedinBio' ? 'bio' : 'post'}.` }, { status: 500 });
+    return NextResponse.json({ error: `An error occurred while generating the ${tool}.` }, { status: 500 });
   }
 }
 
@@ -79,10 +96,23 @@ function createPostMessages(data: PostRequest) {
   const { topic, keyPoints, tone, callToAction } = data;
   return [
     { role: "system", content: "You are a professional LinkedIn content creator." },
-    { role: "user", content: `Generate a compelling LinkedIn post about ${topic}. 
+    { role: "user", content: `Generate a compelling LinkedIn post about ${topic} in human style. No tech jargon, use simple words for readability. 
       Key points to include: ${keyPoints}. 
       Desired tone: ${tone}. 
       Call to action: ${callToAction}.
-      The post should be engaging, informative, and encourage interaction from the audience.` }
+      The post should be concise, engaging, informative, and encourage interaction from the audience.` }
+  ];
+}
+
+function createHeadlineMessages(data: HeadlineRequest) {
+  const { currentRole, keySkills, industry, uniqueValue } = data;
+  return [
+    { role: "system", content: "You are a professional LinkedIn headline writer." },
+    { role: "user", content: `Generate a compelling LinkedIn headline. 
+      Current role: ${currentRole}. 
+      Key skills: ${keySkills}. 
+      Industry: ${industry}. 
+      Unique value proposition: ${uniqueValue}.
+      The headline should be concise, impactful, and highlight the person's professional identity and value.` }
   ];
 }
