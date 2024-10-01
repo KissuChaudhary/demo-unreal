@@ -81,7 +81,7 @@ export default function LinkedInBioForm() {
 
     setIsLoading(true);
     try {
-      const response = await fetch('/api/generate-linkedin-bio', {
+      const response = await fetch('/api/openai-api', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
