@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import { Loader2, Clipboard, Check, AlertCircle, RefreshCw } from 'lucide-react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { Loader2, Clipboard, Check, AlertCircle } from 'lucide-react';
 
 interface FormData {
   fullName: string;
