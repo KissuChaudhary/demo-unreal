@@ -30,7 +30,14 @@ type InstagramBioRequest = {
   callToAction: string;
 };
 
-type Request = BioRequest | PostRequest | HeadlineRequest | InstagramBioRequest;
+type InstagramCaptionRequest = {
+  topic: string;
+  mood: string;
+  hashtags: string;
+  callToAction: string;
+};
+
+type Request = BioRequest | PostRequest | HeadlineRequest | InstagramBioRequest | InstagramCaptionRequest;
 
 export async function POST(request: NextRequest) {
   const body: Request & { tool: string } = await request.json();
@@ -51,6 +58,9 @@ export async function POST(request: NextRequest) {
     case 'instagramBio':
       messages = createInstagramBioMessages(data as InstagramBioRequest);
       break;
+    case 'instagramCaption':
+      messages = createInstagramCaptionMessages(data as InstagramCaptionRequest);
+      break;
     default:
       return NextResponse.json({ error: "Invalid tool specified" }, { status: 400 });
   }
@@ -63,7 +73,7 @@ export async function POST(request: NextRequest) {
         'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: "gpt-4o-mini",
+        model: "gpt-4-0613",
         messages: messages,
         max_tokens: 250
       })
@@ -84,6 +94,8 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ post: content });
       case 'linkedinHeadline':
         return NextResponse.json({ headline: content });
+      case 'instagramCaption':
+        return NextResponse.json({ caption: content });
     }
   } catch (error) {
     console.error('Error:', error);
@@ -139,5 +151,17 @@ function createInstagramBioMessages(data: InstagramBioRequest) {
       Personality: ${personality}. 
       Call to action: ${callToAction}.
       The bio should be concise, creative, and reflect the user's personality while adhering to Instagram's 150 character limit.` }
+  ];
+}
+
+function createInstagramCaptionMessages(data: InstagramCaptionRequest) {
+  const { topic, mood, hashtags, callToAction } = data;
+  return [
+    { role: "system", content: "You are a creative Instagram caption writer." },
+    { role: "user", content: `Generate an engaging Instagram caption about ${topic}. 
+      Mood: ${mood}. 
+      Hashtags to include: ${hashtags}. 
+      Call to action: ${callToAction}.
+      The caption should be catchy, relevant to the topic, and encourage engagement. Include emojis where appropriate.` }
   ];
 }
