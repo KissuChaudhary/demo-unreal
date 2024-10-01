@@ -22,7 +22,15 @@ type HeadlineRequest = {
   uniqueValue: string;
 };
 
-type Request = BioRequest | PostRequest | HeadlineRequest;
+type InstagramBioRequest = {
+  name: string;
+  occupation: string;
+  interests: string;
+  personality: string;
+  callToAction: string;
+};
+
+type Request = BioRequest | PostRequest | HeadlineRequest | InstagramBioRequest;
 
 export async function POST(request: NextRequest) {
   const body: Request & { tool: string } = await request.json();
@@ -32,13 +40,16 @@ export async function POST(request: NextRequest) {
 
   switch (tool) {
     case 'linkedinBio':
-      messages = createBioMessages(data as BioRequest);
+      messages = createLinkedInBioMessages(data as BioRequest);
       break;
     case 'linkedinPost':
-      messages = createPostMessages(data as PostRequest);
+      messages = createLinkedInPostMessages(data as PostRequest);
       break;
     case 'linkedinHeadline':
-      messages = createHeadlineMessages(data as HeadlineRequest);
+      messages = createLinkedInHeadlineMessages(data as HeadlineRequest);
+      break;
+    case 'instagramBio':
+      messages = createInstagramBioMessages(data as InstagramBioRequest);
       break;
     default:
       return NextResponse.json({ error: "Invalid tool specified" }, { status: 400 });
@@ -67,6 +78,7 @@ export async function POST(request: NextRequest) {
 
     switch (tool) {
       case 'linkedinBio':
+      case 'instagramBio':
         return NextResponse.json({ bio: content });
       case 'linkedinPost':
         return NextResponse.json({ post: content });
@@ -79,7 +91,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-function createBioMessages(data: BioRequest) {
+function createLinkedInBioMessages(data: BioRequest) {
   const { name, currentRole, experience, skills, goals } = data;
   return [
     { role: "system", content: "You are a professional LinkedIn bio writer." },
@@ -92,19 +104,19 @@ function createBioMessages(data: BioRequest) {
   ];
 }
 
-function createPostMessages(data: PostRequest) {
+function createLinkedInPostMessages(data: PostRequest) {
   const { topic, keyPoints, tone, callToAction } = data;
   return [
     { role: "system", content: "You are a professional LinkedIn content creator." },
-    { role: "user", content: `Generate a compelling LinkedIn post about ${topic} in human style. No tech jargon, use simple words for readability. 
+    { role: "user", content: `Generate a compelling LinkedIn post about ${topic}. 
       Key points to include: ${keyPoints}. 
       Desired tone: ${tone}. 
       Call to action: ${callToAction}.
-      The post should be concise, engaging, informative, and encourage interaction from the audience.` }
+      The post should be engaging, informative, and encourage interaction from the audience.` }
   ];
 }
 
-function createHeadlineMessages(data: HeadlineRequest) {
+function createLinkedInHeadlineMessages(data: HeadlineRequest) {
   const { currentRole, keySkills, industry, uniqueValue } = data;
   return [
     { role: "system", content: "You are a professional LinkedIn headline writer." },
@@ -114,5 +126,18 @@ function createHeadlineMessages(data: HeadlineRequest) {
       Industry: ${industry}. 
       Unique value proposition: ${uniqueValue}.
       The headline should be concise, impactful, and highlight the person's professional identity and value.` }
+  ];
+}
+
+function createInstagramBioMessages(data: InstagramBioRequest) {
+  const { name, occupation, interests, personality, callToAction } = data;
+  return [
+    { role: "system", content: "You are a creative Instagram bio writer." },
+    { role: "user", content: `Generate an engaging Instagram bio for ${name}. 
+      Occupation: ${occupation}. 
+      Interests: ${interests}. 
+      Personality: ${personality}. 
+      Call to action: ${callToAction}.
+      The bio should be concise, creative, and reflect the user's personality while adhering to Instagram's 150 character limit.` }
   ];
 }
