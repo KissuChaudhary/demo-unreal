@@ -2,12 +2,14 @@ import { Database } from "@/types/supabase";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import axios from "axios";
 import { cookies } from "next/headers";
+
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
 const astriaApiKey = process.env.ASTRIA_API_KEY;
 const astriaTestModeIsOn = process.env.ASTRIA_TEST_MODE === "true";
+const vercelUrl = process.env.VERCEL_URL;
 // For local development, recommend using an Ngrok tunnel for the domain
 
 const appWebhookSecret = process.env.APP_WEBHOOK_SECRET;
@@ -118,7 +120,7 @@ export async function POST(request: Request) {
 
   try {
     const trainWebhook = `https://${process.env.VERCEL_URL}/astria/train-webhook`;
-    const trainWenhookWithParams = `${trainWebhook}?user_id=${user.id}&webhook_secret=${appWebhookSecret}`;
+    const trainWebhookWithParams = `${trainWebhook}?user_id=${user.id}&webhook_secret=${appWebhookSecret}`;
 
     const promptWebhook = `https://${process.env.VERCEL_URL}/astria/prompt-webhook`;
     const promptWebhookWithParams = `${promptWebhook}?user_id=${user.id}&webhook_secret=${appWebhookSecret}`;
@@ -136,7 +138,7 @@ export async function POST(request: Request) {
         branch: astriaTestModeIsOn ? "fast" : "sd15",
         token: "ohwx",
         image_urls: images,
-        callback: trainWenhookWithParams,
+        callback: trainWebhookWithParams,
         prompts_attributes: [
           {
             text: `portrait of ohwx ${type} wearing a business suit, professional photo, white background, Amazing Details, Best Quality, Masterpiece, dramatic lighting highly detailed, analog photo, overglaze, 80mm Sigma f/1.4 or any ZEISS lens`,
