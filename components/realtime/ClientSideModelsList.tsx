@@ -43,8 +43,9 @@ const PhotoUploadInstructions: React.FC<{ onOpenModal: () => void }> = ({ onOpen
       </div>
     </div>
     <div className="flex justify-center">
+      
       <button
-        className="text-blue-500 underline"
+        className="inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-indigo-900 text-primary-foreground shadow hover:bg-indigo-800 h-8 rounded-md px-3 text-xs"
         onClick={onOpenModal}
       >
         📋 Read complete photo upload Guide
