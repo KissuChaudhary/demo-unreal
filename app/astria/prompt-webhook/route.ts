@@ -1,7 +1,6 @@
 import { Database } from "@/types/supabase";
 import { createClient } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
 
 export const dynamic = "force-dynamic";
 
@@ -30,21 +29,24 @@ if (!appWebhookSecret) {
 }
 
 export async function POST(request: Request) {
-  type TuneData = {
+  type PromptData = {
     id: number;
-    title: string;
-    name: string;
+    text: string;
+    negative_prompt: string;
     steps: null;
-    trained_at: null;
-    started_training_at: null;
+    tune_id: number;
+    trained_at: string;
+    started_training_at: string;
     created_at: string;
     updated_at: string;
-    expires_at: null;
+    images: string[];
   };
 
-  const incomingData = (await request.json()) as { tune: TuneData };
+  const incomingData = (await request.json()) as { prompt: PromptData };
 
-  const { tune } = incomingData;
+  const { prompt } = incomingData;
+
+  console.log({ prompt });
 
   const urlObj = new URL(request.url);
   const user_id = urlObj.searchParams.get("user_id");
@@ -113,26 +115,18 @@ export async function POST(request: Request) {
   }
 
   try {
-    if (resendApiKey) {
-      const resend = new Resend(resendApiKey);
-      await resend.emails.send({
-        from: "noreply@headshots.tryleap.ai",
-        to: user?.email ?? "",
-        subject: "Your model was successfully trained!",
-        html: `<h2>We're writing to notify you that your model training was successful! 1 credit has been used from your account.</h2>`,
-      });
-    }
+    // Here we join all of the arrays into one.
+    const allHeadshots = prompt.images;
+    const modelId = prompt.tune_id;
 
-    const { data: modelUpdated, error: modelUpdatedError } = await supabase
+    const { data: model, error: modelError } = await supabase
       .from("models")
-      .update({
-        status: "finished",
-      })
-      .eq("modelId", tune.id)
-      .select();
+      .select("*")
+      .eq("modelId", modelId)
+      .single();
 
-    if (modelUpdatedError) {
-      console.error({ modelUpdatedError });
+    if (modelError) {
+      console.error({ modelError });
       return NextResponse.json(
         {
           message: "Something went wrong!",
@@ -141,11 +135,17 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!modelUpdated) {
-      console.error("No model updated!");
-      console.error({ modelUpdated });
-    }
-
+    await Promise.all(
+      allHeadshots.map(async (image) => {
+        const { error: imageError } = await supabase.from("images").insert({
+          modelId: Number(model.id),
+          uri: image,
+        });
+        if (imageError) {
+          console.error({ imageError });
+        }
+      })
+    );
     return NextResponse.json(
       {
         message: "success",
