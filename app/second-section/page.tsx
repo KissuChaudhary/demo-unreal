@@ -128,7 +128,7 @@ const ComparisonPage = () => {
                   height={24}
                 />
               }
-              title="1. Upload your photos (5 minutes)"
+              title="1. Upload your photos (2 minutes)"
               description="Choose from your existing photo library or snap some new selfies right away."
             />
 
@@ -141,7 +141,7 @@ const ComparisonPage = () => {
                   height={24}
                 />
               }
-              title="2. Unrealshot AI At Work (1-2 hours)"
+              title="2. Unrealshot AI At Work (30-60 minutes)"
               description="Our AI will process your photos to generate a professional headshot based on photogenic qualities of your photos."
             />
 
@@ -154,7 +154,7 @@ const ComparisonPage = () => {
                   height={24}
                 />
               }
-              title="3. Download your AI Headshots (5 minutes)"
+              title="3. Download your AI Headshots (2 minutes)"
               description="Download your newly created headshot and enjoy a polished, professional image."
             />
 
