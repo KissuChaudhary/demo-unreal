@@ -2,7 +2,8 @@ import ClientSideModelsList from "@/components/realtime/ClientSideModelsList";
 import { Database } from "@/types/supabase";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import Head from "next/head";  // Import Head for SEO
+import { redirect } from "next/navigation"; // Import the redirect function
+import Head from "next/head";
 
 export const dynamic = "force-dynamic";
 
@@ -16,16 +17,11 @@ export default async function Index() {
     data: { user },
   } = await supabase.auth.getUser();
 
+  // Redirect non-logged-in users to the login page
   if (!user) {
-    return (
-      <>
-        <Head>
-          <link rel="canonical" href="https://www.unrealshot.com/login" />
-        </Head>
-        <div>User not found</div>
-      </>
-    );
+    redirect("/login"); // Use Next.js redirect for non-logged-in users
   }
+
   const { data: models } = await supabase
     .from("models")
     .select(
@@ -35,5 +31,12 @@ export default async function Index() {
     )
     .eq("user_id", user?.id ?? "");
 
-  return <ClientSideModelsList serverModels={models ?? []} />;
+  return (
+    <>
+      <Head>
+        <link rel="canonical" href="https://www.unrealshot.com/overview" />
+      </Head>
+      <ClientSideModelsList serverModels={models ?? []} />
+    </>
+  );
 }
