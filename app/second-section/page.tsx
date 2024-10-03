@@ -179,7 +179,7 @@ const ComparisonPage = () => {
               alt="Physical Photoshoot Timeline"
               className="img-compare mb-4 rounded-[10px]"
             />
-            <h3 className="text-xl font-bold mb-4">Physical photoshoot</h3>
+            <h3 className="text-xl font-bold mb-4">Studio photoshoot</h3>
 
             {[
               "Find a photographer you like",
