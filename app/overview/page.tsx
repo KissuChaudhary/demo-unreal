@@ -3,7 +3,7 @@ import { Database } from "@/types/supabase";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation"; // Import the redirect function
-import Head from "next/head";
+import Head from "next/head";  
 
 export const dynamic = "force-dynamic";
 
@@ -19,7 +19,8 @@ export default async function Index() {
 
   // Redirect non-logged-in users to the login page
   if (!user) {
-    redirect("/login"); // Use Next.js redirect for non-logged-in users
+    // Return redirect response instead of just calling redirect
+    return redirect("/login");
   }
 
   const { data: models } = await supabase
