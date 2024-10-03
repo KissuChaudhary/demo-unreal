@@ -2,6 +2,7 @@ import ClientSideModelsList from "@/components/realtime/ClientSideModelsList";
 import { Database } from "@/types/supabase";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import Head from "next/head";  // Import Head for SEO
 
 export const dynamic = "force-dynamic";
 
@@ -16,9 +17,15 @@ export default async function Index() {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return <div>User not found</div>;
+    return (
+      <>
+        <Head>
+          <link rel="canonical" href="https://www.unrealshot.com/login" />
+        </Head>
+        <div>User not found</div>
+      </>
+    );
   }
-
   const { data: models } = await supabase
     .from("models")
     .select(
