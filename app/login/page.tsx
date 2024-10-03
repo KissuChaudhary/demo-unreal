@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { Database } from "../../types/supabase";
 import { Login } from "./components/Login";
 import Script from 'next/script';
-
+import Head from "next/head";  
 
 export const dynamic = "force-dynamic";
 
@@ -38,6 +38,9 @@ export default async function LoginPage({
 
   return (
     <>
+       <Head>
+        <link rel="canonical" href="https://www.unrealshot.com/login" />
+      </Head>
       <Script
         id="login-schema"
         type="application/ld+json"
