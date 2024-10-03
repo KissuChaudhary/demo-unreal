@@ -15,8 +15,8 @@ export const metadata = {
 
 export default function GuideArticle() {
   return (
-    <article className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-6">Understanding UnrealShot AI and the Process of Generating Professional AI Headshots</h1>
+    <article className="max-w-[80rem] px-4 sm:px-6 lg:px-8 mx-auto">
+      <h1 className="text-main text-4xl font-bold mx-auto mb-10 text-indigo-900 lg:mb-14">Understanding UnrealShot AI and the Process of Generating Professional AI Headshots</h1>
       
       <section className="mb-8">
         <p className="mb-4">In today's digital world, a professional headshot is important for your personal brand. It helps you make a great first impression on LinkedIn, your resume, or your website. UnrealShot AI provides a new way to make high-quality, professional headshots. You don't need an expensive photographer or studio session.</p>
@@ -46,14 +46,20 @@ export default function GuideArticle() {
         </ul>
       </section>
 
-      <section className="mb-8">
+     <section className="mb-8">
         <h2 className="text-3xl font-semibold mb-4">Step-by-Step Guide: How to Create a Professional AI Headshot with UnrealShot</h2>
         <ol className="list-decimal list-inside ml-4">
           <li className="mb-4">
             <strong>Sign Up or Log In:</strong> First, visit UnrealShot.com. You can sign up for a new account or log in if you already have one.
+            <div className="my-4">
+              <Image src="/api/placeholder/800/400" alt="UnrealShot sign up or login page" width={800} height={400} className="rounded-lg shadow-md" />
+            </div>
           </li>
           <li className="mb-4">
             <strong>Train the Model:</strong> This is where the magic happens! Follow these steps to get your personalized AI model ready for headshot generation:
+            <div className="my-4">
+              <Image src="/api/placeholder/800/400" alt="UnrealShot AI model training interface" width={800} height={400} className="rounded-lg shadow-md" />
+            </div>
             <ul className="list-disc list-inside ml-8 mt-2">
               <li>Name Your Model: Start by giving your model a unique and recognizable name. For example, you might call it something like "John's Professional Headshots" so you can easily find it later.</li>
               <li>Select the Gender: Choose the type of headshot you'd like based on gender. You have three options:
@@ -64,14 +70,17 @@ export default function GuideArticle() {
                 </ul>
               </li>
               <li>Upload Your Photos: Next, upload 4–10 of your best images. Keep these guidelines in mind to get the best possible headshots from the AI:
+                <div className="my-4">
+                  <Image src="/api/placeholder/800/400" alt="UnrealShot photo upload interface" width={800} height={400} className="rounded-lg shadow-md" />
+                </div>
                 <ul className="list-disc list-inside ml-12">
                   <li>Solo Images Only: No group shots; the AI needs to focus solely on you.</li>
                   <li>Clear and Sharp Photos: Avoid blurry or low-resolution pictures—high-quality images lead to better results.</li>
                   <li>No Hats or Caps: Make sure your face is fully visible, without any headwear.</li>
                   <li>Neutral Expressions: Opt for neutral, professional looks rather than playful or exaggerated expressions.</li>
                   <li>No Selfies in Cars or Mirrors: Try to use well-lit, professional-looking images.</li>
-                  <li>Recent Photos: Use current images that accurately represent how you look today.</li>
-                  <li>Variety in Your Uploads: Ensure a mix of different outfits, backgrounds, and facial expressions. This helps the AI build a more versatile and well-rounded model of your appearance.</li>
+                  <li><strong>Recent Photos</strong>: Use current images that accurately represent how you look today.</li>
+                  <li><strong>Variety in Your Uploads</strong>: Ensure a mix of different outfits, backgrounds, and facial expressions. This helps the AI build a more versatile and well-rounded model of your appearance.</li>
                 </ul>
               </li>
               <li>Start the Training Process: Once you've uploaded your images, click the "Train Model" button. This step will use one credit from your account.</li>
@@ -82,15 +91,21 @@ export default function GuideArticle() {
           </li>
           <li>
             <strong>Review and Download Your Headshots:</strong>
+            <div className="my-4">
+              <Image src="/api/placeholder/800/400" alt="UnrealShot AI generated headshots review page" width={800} height={400} className="rounded-lg shadow-md" />
+            </div>
             <ul className="list-disc list-inside ml-8 mt-2">
               <li>Once your AI model is ready, you can access it directly from your account. Simply open the model, and you'll see all of your newly generated headshots displayed.</li>
               <li>Preview Your Images: You can browse through the selection. This lets you see how the AI has transformed your photos into polished, professional headshots.</li>
-              <li>Download Your Favourites: Now you can download your AI generated professional headshot. Select and download the high-resolution images you like, one by one, directly to your device. You can use these for professional portfolios, CVs, websites, or anywhere you need a good headshot.</li>
+              <li>Download Your Favourites: Now you can download your AI generated professional headshot. Select and download the high-resolution images you like, one by one, directly to your device. You can use these for professional portfolios, CVs, websites, or anywhere you need a good headshot.
+                <div className="my-4">
+                  <Image src="/api/placeholder/800/400" alt="UnrealShot AI headshot download interface" width={800} height={400} className="rounded-lg shadow-md" />
+                </div>
+              </li>
             </ul>
           </li>
         </ol>
       </section>
-
       <section className="mb-8">
         <h2 className="text-3xl font-semibold mb-4">Tips for Getting the Best Results from UnrealShot AI</h2>
         <p className="mb-4">For the best possible headshots, follow these additional tips:</p>
