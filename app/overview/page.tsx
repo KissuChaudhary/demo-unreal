@@ -2,7 +2,7 @@ import ClientSideModelsList from "@/components/realtime/ClientSideModelsList";
 import { Database } from "@/types/supabase";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import Head from "next/head";  
+import Head from "next/head";  // Import Head for SEO
 
 export const dynamic = "force-dynamic";
 
@@ -26,12 +26,13 @@ export default async function Index() {
       </>
     );
   }
+
   const { data: models } = await supabase
     .from("models")
     .select(
-      *, samples (
+      `*, samples (
           *
-        )
+        )`
     )
     .eq("user_id", user?.id ?? "");
 
