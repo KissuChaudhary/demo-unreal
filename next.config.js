@@ -6,15 +6,8 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/:path*",
-        has: [
-          {
-            type: "query",
-            key: "path",
-            value: "(.+[^/])$",  // This ensures non-slash URLs are redirected
-          },
-        ],
-        destination: "/:path*/", // Redirect to the version with the slash
+        source: "/:path*/",
+        destination: "/:path*", // Redirect to the non-slash version
         permanent: true,
       },
     ];
