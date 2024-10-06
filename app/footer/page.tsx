@@ -27,7 +27,11 @@ const Footer = () => {
                 Pricing
               </a>
             </li>
-            
+            <li>
+              <a href="/blog" className="hover:text-white transition">
+                Blog
+              </a>
+            </li>
             <li>
               <a href="/contact-us" className="hover:text-white transition">
                 Contact Us
