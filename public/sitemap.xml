@@ -1,84 +1,88 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
 <url>
-  <loc>https://www.unrealshot.com/</loc>
-  <lastmod>2024-10-01T17:40:59+00:00</lastmod>
-  <priority>1.00</priority>
+<loc>https://www.unrealshot.com/</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>1.00</priority>
 </url>
 <url>
-  <loc>https://www.unrealshot.com/login</loc>
-  <lastmod>2024-09-08T17:40:59+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.unrealshot.com/login</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.unrealshot.com/about</loc>
-  <lastmod>2024-09-08T17:40:59+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.unrealshot.com/about</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.unrealshot.com/pricing</loc>
-  <lastmod>2024-09-08T17:40:59+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.unrealshot.com/pricing</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.unrealshot.com/contact-us</loc>
-  <lastmod>2024-09-08T17:40:59+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.unrealshot.com/blog</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.unrealshot.com/faqs</loc>
-  <lastmod>2024-09-08T17:40:59+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.unrealshot.com/contact-us</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.unrealshot.com/terms</loc>
-  <lastmod>2024-09-08T17:40:59+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.unrealshot.com/faqs</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.unrealshot.com/refund-policy</loc>
-  <lastmod>2024-09-08T17:40:59+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.unrealshot.com/terms</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.unrealshot.com/privacy-policy</loc>
-  <lastmod>2024-09-08T17:40:59+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.unrealshot.com/refund-policy</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.unrealshot.com/overview</loc>
-  <lastmod>2024-10-01T17:33:49+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.unrealshot.com/privacy-policy</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.unrealshot.com/linkedin-bio-generator</loc>
-  <lastmod>2024-10-01T23:22:59+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.unrealshot.com/linkedin-bio-generator</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.80</priority>
 </url>
-      <url>
-  <loc>https://www.unrealshot.com/linkedin-headline-generator</loc>
-  <lastmod>2024-10-01T23:38:40+00:00</lastmod>
-  <priority>0.80</priority>
+<url>
+<loc>https://www.unrealshot.com/linkedin-headline-generator</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.80</priority>
 </url>
-      <url>
-  <loc>https://www.unrealshot.com/linkedin-post-generator</loc>
-  <lastmod>2024-10-01T23:40:32+00:00</lastmod>
-  <priority>0.80</priority>
+<url>
+<loc>https://www.unrealshot.com/linkedin-post-generator</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.80</priority>
 </url>
-         <url>
-  <loc>https://www.unrealshot.com/instagram-bio-generator</loc>
-  <lastmod>2024-10-01T23:42:59+00:00</lastmod>
-  <priority>0.80</priority>
+<url>
+<loc>https://www.unrealshot.com/instagram-bio-generator</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.80</priority>
 </url>
-   <url>
-  <loc>https://www.unrealshot.com/instagram-caption-generator</loc>
-  <lastmod>2024-10-01T23:45:21+00:00</lastmod>
-  <priority>0.80</priority>
+<url>
+<loc>https://www.unrealshot.com/instagram-caption-generator</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://www.unrealshot.com/blog/remaker-ai-face-swap-uses-features</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://www.unrealshot.com/blog/how-to-use-saze-ai-text-to-speech</loc>
+<lastmod>2024-10-06T07:21:30+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 </urlset>
