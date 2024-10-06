@@ -10,6 +10,7 @@ interface BlogPostProps {
 
 const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
   const date = parseISO(post.date);
+  const getInitial = (name: string) => name.charAt(0).toUpperCase();
 
   return (
     <article className="max-w-4xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden">
@@ -27,15 +28,25 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
       )}
       <div className="p-8">
         <div className="flex items-center mb-4">
-          {post.author.node.avatar && (
+          {post.author.node.avatar?.url ? (
             <Image
               src={post.author.node.avatar.url}
               alt={post.author.node.name}
               width={40}
               height={40}
               className="rounded-full mr-4"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.nextSibling.style.display = 'flex';
+              }}
             />
-          )}
+          ) : null}
+          <div 
+            className="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center mr-4"
+            style={{ display: post.author.node.avatar?.url ? 'none' : 'flex' }}
+          >
+            {getInitial(post.author.node.name)}
+          </div>
           <div>
             <p className="font-semibold text-gray-900">{post.author.node.name}</p>
             <time dateTime={post.date} className="text-sm text-gray-600">
