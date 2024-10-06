@@ -28,36 +28,36 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
       )}
       <div className="p-8">
         <div className="flex items-center mb-4">
-         {post.author.node.avatar.url ? (
-                <>
-                  <Image
-                    src={post.author.node.avatar.url}
-                    alt={post.author.node.name}
-                    width={40}
-                    height={40}
-                    className="rounded-full mr-4"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      const fallbackAvatar = target.nextElementSibling as HTMLDivElement | null;
-                      if (fallbackAvatar) {
-                        fallbackAvatar.style.display = 'flex';
-                      }
-                    }}
-                  />
-                  <div 
-                    className="w-6 h-6 rounded-full bg-blue-500 text-white items-center justify-center mr-2 hidden"
-                  >
-                    {getInitial(post.author.node.name)}
-                  </div>
-                </>
-              ) : (
-                <div 
-                  className="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center mr-2"
-                >
-                  {getInitial(post.author.node.name)}
-                </div>
-              )}
+          {post.author.node.avatar.url ? (
+            <>
+              <Image
+                src={post.author.node.avatar.url}
+                alt={post.author.node.name}
+                width={40}
+                height={40}
+                className="rounded-full mr-4"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const fallbackAvatar = target.nextElementSibling as HTMLDivElement | null;
+                  if (fallbackAvatar) {
+                    fallbackAvatar.style.display = 'flex';
+                  }
+                }}
+              />
+              <div 
+                className="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center mr-4 hidden"
+              >
+                {getInitial(post.author.node.name)}
+              </div>
+            </>
+          ) : (
+            <div 
+              className="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center mr-4"
+            >
+              {getInitial(post.author.node.name)}
+            </div>
+          )}
           <div>
             <p className="font-semibold text-gray-900">{post.author.node.name}</p>
             <time dateTime={post.date} className="text-sm text-gray-600">
