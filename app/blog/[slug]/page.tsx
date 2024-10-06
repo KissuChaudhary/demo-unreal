@@ -1,5 +1,4 @@
 // app/blog/[slug]/page.tsx
-
 import { getPostBySlug, getAllPosts } from '../../lib/api';
 import BlogPost from '../../components/BlogPost';
 import { Metadata } from 'next';
@@ -62,6 +61,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 }
 
 export async function generateStaticParams() {
-  const slugs = await getAllPosts();
-  return slugs.map((slug) => ({ slug }));
+  const postsResponse = await getAllPosts();
+  return postsResponse.edges.map(({ node }) => ({ 
+    slug: node.slug 
+  }));
 }
