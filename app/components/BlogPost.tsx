@@ -22,7 +22,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
             fill
             priority
             sizes="(max-width: 768px) 100vw, 1200px"
-            className="object-cover"
+            className="object-cover md:object-contain"
           />
         </div>
       )}
