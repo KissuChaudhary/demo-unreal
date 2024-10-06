@@ -34,25 +34,36 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
           <div className="p-6">
             <h2 className="text-2xl font-bold mb-2 text-gray-900">{post.title}</h2>
             <div className="flex items-center mb-4">
-              {post.author.node.avatar?.url ? (
-                <Image
-                  src={post.author.node.avatar.url}
-                  alt={post.author.node.name}
-                  width={24}
-                  height={24}
-                  className="rounded-full mr-2"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.nextSibling.style.display = 'flex';
-                  }}
-                />
-              ) : null}
-              <div 
-                className="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center mr-2"
-                style={{ display: post.author.node.avatar?.url ? 'none' : 'flex' }}
-              >
-                {getInitial(post.author.node.name)}
-              </div>
+              {post.author.node.avatar.url ? (
+                <>
+                  <Image
+                    src={post.author.node.avatar.url}
+                    alt={post.author.node.name}
+                    width={24}
+                    height={24}
+                    className="rounded-full mr-2"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const fallbackAvatar = target.nextElementSibling as HTMLDivElement | null;
+                      if (fallbackAvatar) {
+                        fallbackAvatar.style.display = 'flex';
+                      }
+                    }}
+                  />
+                  <div 
+                    className="w-6 h-6 rounded-full bg-blue-500 text-white items-center justify-center mr-2 hidden"
+                  >
+                    {getInitial(post.author.node.name)}
+                  </div>
+                </>
+              ) : (
+                <div 
+                  className="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center mr-2"
+                >
+                  {getInitial(post.author.node.name)}
+                </div>
+              )}
               <span className="text-sm text-gray-600">{post.author.node.name}</span>
               <span className="mx-2 text-gray-400">•</span>
               <time dateTime={post.date} className="text-sm text-gray-600">
