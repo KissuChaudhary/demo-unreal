@@ -149,7 +149,12 @@ export async function POST(request: Request) {
             num_images: 2,
           },
           {
-            text: `Elegant ohwx man, business photo, cinematic, charming`,
+            text: `Elegant ohwx ${type}, business photo, cinematic, charming`,
+            callback: promptWebhookWithParams,
+            num_images: 2,
+          },
+           {
+            text: `A well-groomed, confident ohwx ${type} in a casual, trendy shirt posing against a colorful urban backdrop, giving a friendly, approachable expression for a dating profile headshot.`,
             callback: promptWebhookWithParams,
             num_images: 2,
           },
