@@ -64,7 +64,7 @@ async function fetchAPI(query: string, { variables }: { variables?: any } = {}):
 export async function getAllPosts(page: number = 1, perPage: number = 9): Promise<PostsResponse> {
   const data = await fetchAPI(`
     query AllPosts($first: Int!, $after: String) {
-      posts(first: $first, after: $after, where: { orderby: { field: DATE, order: DESC } }) {
+      posts(first: $first, after: $after, where: { orderby: { field: DATE, order: DESC }, status: PUBLISH }) {
         pageInfo {
           endCursor
           hasNextPage
