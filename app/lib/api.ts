@@ -1,49 +1,9 @@
 // app/lib/api.ts
-
-interface Post {
-  id: string;
-  date: string;
-  modified: string;
-  title: string;
-  content: string;
-  slug: string;
-  excerpt: string;
-  featuredImage: {
-    node: {
-      sourceUrl: string;
-      altText: string;
-    };
-  };
-  author: {
-    node: {
-      name: string;
-      avatar: {
-        url: string;
-      };
-    };
-  };
-  categories: {
-    edges: Array<{
-      node: {
-        name: string;
-        slug: string;
-      };
-    }>;
-  };
-}
-
-interface PostsResponse {
-  edges: Array<{ node: Post }>;
-  pageInfo: {
-    endCursor: string;
-    hasNextPage: boolean;
-  };
-}
-
 const API_URL = process.env.WORDPRESS_API_URL;
 
 async function fetchAPI(query: string, { variables }: { variables?: any } = {}): Promise<any> {
   const headers = { 'Content-Type': 'application/json' };
+  
   const res = await fetch(API_URL!, {
     method: 'POST',
     headers,
@@ -51,10 +11,12 @@ async function fetchAPI(query: string, { variables }: { variables?: any } = {}):
   });
 
   const json = await res.json();
+  
   if (json.errors) {
     console.error(json.errors);
     throw new Error('Failed to fetch API');
   }
+  
   return json.data;
 }
 
@@ -75,7 +37,7 @@ export async function getAllPosts(page: number = 1, perPage: number = 9): Promis
             excerpt
             featuredImage {
               node {
-                sourceUrl
+                sourceUrl(size: LARGE)
                 altText
               }
             }
@@ -116,12 +78,12 @@ export async function getPostBySlug(slug: string): Promise<Post> {
         date
         modified
         title
-        content
+        content(format: RENDERED)
         slug
-        excerpt
+        excerpt(format: RENDERED)
         featuredImage {
           node {
-            sourceUrl
+            sourceUrl(size: LARGE)
             altText
           }
         }
@@ -150,19 +112,4 @@ export async function getPostBySlug(slug: string): Promise<Post> {
     }
   });
   return data?.post;
-}
-
-export async function getAllPostSlugs(): Promise<string[]> {
-  const data = await fetchAPI(`
-    {
-      posts(first: 10000) {
-        edges {
-          node {
-            slug
-          }
-        }
-      }
-    }
-  `);
-  return data?.posts?.edges.map(({ node }: { node: { slug: string } }) => node.slug) || [];
 }
