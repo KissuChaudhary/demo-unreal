@@ -26,7 +26,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   const { edges: posts, pageInfo } = await getAllPosts(page, postsPerPage);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 className="text-5xl font-bold mb-12 text-center text-gray-900">Our Blog</h1>
       <BlogList posts={posts} />
       <div className="mt-12 flex justify-center gap-4">
