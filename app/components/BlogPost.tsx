@@ -1,7 +1,10 @@
 // components/BlogPost.tsx
+'use client'; // Add this at the top to make it a Client Component
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { parseISO, format } from 'date-fns';
+import { useState } from 'react';
 
 interface Post {
   title: string;
@@ -37,6 +40,8 @@ interface BlogPostProps {
 
 const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
   const date = parseISO(post.date);
+  const [featuredImageError, setFeaturedImageError] = useState(false);
+  const [avatarError, setAvatarError] = useState(false);
   
   const formatContent = (content: string) => {
     return content
@@ -52,7 +57,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
 
   return (
     <article className="max-w-4xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden">
-      {post.featuredImage?.node?.sourceUrl ? (
+      {post.featuredImage?.node?.sourceUrl && !featuredImageError ? (
         <div className="relative h-96">
           <Image
             src={post.featuredImage.node.sourceUrl}
@@ -60,9 +65,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
             fill
             priority
             className="object-cover"
-            onError={(e: any) => {
-              e.target.src = '/placeholder-image.jpg'; // Make sure to add this image in your public folder
-            }}
+            onError={() => setFeaturedImageError(true)}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
@@ -74,23 +77,14 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
       
       <div className="p-8">
         <div className="flex items-center mb-4">
-          {post.author.node.avatar?.url ? (
+          {post.author.node.avatar?.url && !avatarError ? (
             <div className="relative w-10 h-10">
               <Image
                 src={post.author.node.avatar.url}
                 alt={post.author.node.name}
                 fill
                 className="rounded-full object-cover"
-                onError={(e: any) => {
-                  const target = e.target as HTMLElement;
-                  target.style.display = 'none';
-                  const parent = target.parentElement;
-                  if (parent) {
-                    parent.innerHTML = `<div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white">
-                      ${post.author.node.name.charAt(0)}
-                    </div>`;
-                  }
-                }}
+                onError={() => setAvatarError(true)}
               />
             </div>
           ) : (
