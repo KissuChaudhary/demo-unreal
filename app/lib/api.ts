@@ -1,6 +1,48 @@
 // app/lib/api.ts
 const API_URL = process.env.WORDPRESS_API_URL;
 
+interface Post {
+  id: string;
+  date: string;
+  modified: string;
+  title: string;
+  content: string;
+  slug: string;
+  excerpt: string;
+  featuredImage: {
+    node: {
+      sourceUrl: string;
+      altText: string;
+    };
+  };
+  author: {
+    node: {
+      name: string;
+      avatar: {
+        url: string;
+      };
+    };
+  };
+  categories: {
+    edges: Array<{
+      node: {
+        name: string;
+        slug: string;
+      };
+    }>;
+  };
+}
+
+interface PostsResponse {
+  pageInfo: {
+    endCursor: string;
+    hasNextPage: boolean;
+  };
+  edges: Array<{
+    node: Post;
+  }>;
+}
+
 async function fetchAPI(query: string, { variables }: { variables?: any } = {}): Promise<any> {
   const headers = { 'Content-Type': 'application/json' };
   
@@ -9,7 +51,6 @@ async function fetchAPI(query: string, { variables }: { variables?: any } = {}):
     headers,
     body: JSON.stringify({ query, variables }),
   });
-
   const json = await res.json();
   
   if (json.errors) {
