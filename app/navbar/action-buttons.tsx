@@ -29,6 +29,7 @@ const ActionButtons = () => {
                     <Link href="/">Home</Link>
         <Link href="/refund-policy">Refunds</Link>
         <Link href="/faqs">FAQs</Link>
+        <Link href="/blog">Blog</Link>
         <Link href="/overview">
           <button className="flex items-center bg-indigo-900 text-white font-bold py-2 px-6 rounded-lg shadow-lg hover:bg-indigo-800 transition duration-300">
             Sign in
