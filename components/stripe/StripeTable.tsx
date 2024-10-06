@@ -25,7 +25,7 @@ type PlanDetails = {
 const plans: { [key in PlanType]: PlanDetails } = {
   oneCredit: {
     title: "1 Credit",
-    price: 5.49,
+    price: 1.50,
     credits: 1,
     images: 8,
     models: 1,
