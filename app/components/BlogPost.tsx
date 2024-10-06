@@ -22,11 +22,11 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
             fill
             priority
             sizes="(max-width: 768px) 100vw, 1200px"
-            className="object-cover md:object-contain"
+            className="object-cover"
           />
         </div>
       )}
-      <div className="p-8">
+      <div className="px-4 py-6 md:px-8 md:py-8">
         <div className="flex items-center mb-4">
           <div 
             className="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center mr-4"
