@@ -1,6 +1,6 @@
 // app/blog/[slug]/page.tsx
 
-import { getPostBySlug, getAllPostSlugs } from '../../lib/api';
+import { getAllPosts } from '../../lib/api';
 import BlogPost from '../../components/BlogPost';
 import { Metadata } from 'next';
 
