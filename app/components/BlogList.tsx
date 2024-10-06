@@ -46,10 +46,10 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
           className="bg-white shadow-lg rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
         >
           <div className="relative h-48">
-            {node.featuredImage && (
+            {post.featuredImage?.node?.sourceUrl && (
               <Image
-                src={node.featuredImage.node.sourceUrl}
-                alt={node.featuredImage.node.altText || node.title}
+                src={post.featuredImage.node.sourceUrl}
+                alt={post.featuredImage.node.altText || post.title}
                 layout="fill"
                 objectFit="cover"
                 className="transition-transform duration-300 hover:scale-105"
