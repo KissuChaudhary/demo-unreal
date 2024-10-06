@@ -36,7 +36,7 @@ const plans: { [key in PlanType]: PlanDetails } = {
     price: 15.49,
     credits: 4,
     images: 32,
-    models: 3,
+    models: 4,
     stripePriceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ID_THREE_CREDITS!,
   },
   fiveCredits: {
@@ -44,7 +44,7 @@ const plans: { [key in PlanType]: PlanDetails } = {
     price: 41.99,
     credits: 9,
     images: 72,
-    models: 5,
+    models: 9,
     stripePriceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ID_FIVE_CREDITS!,
   },
 };
@@ -224,7 +224,7 @@ const StripePricingTable = ({ user }: Props) => {
                     />
                   </svg>
                   <span className="text-gray-700">
-                    {plan.models} Model(s) Included
+                    {plan.models} Model(s) Training Included
                   </span>
                 </li>
               </ul>
