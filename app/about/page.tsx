@@ -86,7 +86,7 @@ const AboutUs: React.FC = () => {
         <section className="mb-6">
           <h2 className="text-xl font-semibold mb-2">Today and Tomorrow</h2>
           <p className="mb-4">
-            Today, Unrealshot AI is serving users worldwide, helping them create stunning headshots that look like they’ve been shot in a studio. From freelancers looking to stand out, to business owners crafting a professional brand, we’re proud to be a part of your journey.
+            Today, Unrealshot AI is serving users worldwide, helping them create stunning and <a href="/" className="hover:text-dark transition"> professional ai headshots </a> that look like they’ve been shot in a studio. From freelancers looking to stand out, to business owners crafting a professional brand, we’re proud to be a part of your journey.
           </p>
           <p className="mb-4">
             Our story is far from over. We continue to innovate, improve, and grow with every bit of feedback we receive. But at the heart of everything we do is the same passion that started it all—an unshakable belief in the power of technology to make life a little easier, and a lot more creative.
