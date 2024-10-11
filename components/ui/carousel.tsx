@@ -41,7 +41,7 @@ export default function Component() {
   }, [isHovering, steps.length])
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gray-100">
+    <div className="py-12 flex items-center justify-center p-4 bg-gray-100">
       <div className="max-w-5xl w-full">
         <h2 className="text-4xl font-bold mb-2 text-gray-800">How It Works</h2>
         <p className="text-xl mb-12 text-gray-600">
