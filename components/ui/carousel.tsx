@@ -1,10 +1,9 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Camera, Wand2, Image as ImageIcon } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 
 export default function Component() {
   const [activeStep, setActiveStep] = useState(0)
@@ -30,15 +29,6 @@ export default function Component() {
       color: "bg-gradient-to-r from-amber-400 to-orange-300",
     }
   ]
-
-  useEffect(() => {
-    if (!isHovering) {
-      const interval = setInterval(() => {
-        setActiveStep((prevStep) => (prevStep + 1) % steps.length)
-      }, 5000)
-      return () => clearInterval(interval)
-    }
-  }, [isHovering, steps.length])
 
   return (
     <div className="py-12 flex items-center justify-center p-4 bg-gray-100">
@@ -90,22 +80,6 @@ export default function Component() {
             <p className="text-lg">{steps[activeStep].description}</p>
           </motion.div>
         </AnimatePresence>
-
-        <div className="mt-8 flex justify-center space-x-2">
-          {steps.map((_, index) => (
-            <Button
-              key={index}
-              variant="outline"
-              size="sm"
-              className={`w-3 h-3 rounded-full p-0 ${
-                index === activeStep
-                  ? "bg-blue-500 border-blue-500"
-                  : "bg-gray-300 border-gray-300 hover:bg-gray-400 hover:border-gray-400"
-              }`}
-              onClick={() => setActiveStep(index)}
-            />
-          ))}
-        </div>
       </div>
     </div>
   )
