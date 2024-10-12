@@ -4,7 +4,6 @@ import React from "react";
 import Head from "next/head";
 import Script from "next/script";
 
-
 // Define metadata for the page
 export const metadata = {
   title: "About Us - Unrealshot AI",
