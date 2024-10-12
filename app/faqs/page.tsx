@@ -91,7 +91,7 @@ const Faqs = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <div className="flex-grow px-4 pb-6">
+      <div className="flex-grow px-4 py-8 pb-6">
         {/* Title */}
         <div className="max-w-[80rem] px-4 sm:px-6 lg:px-8 mx-auto">
           <h1
