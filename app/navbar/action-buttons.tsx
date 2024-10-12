@@ -45,7 +45,7 @@ const ActionButtons = () => {
       <div className="hidden md:flex md:space-x-4">
        
         <Link href="/overview">
-          <Button className="flex items-center bg-indigo-900 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-indigo-800 transition duration-300">Get Started</Button>
+          <Button className="flex items-center bg-indigo-900 text-white font-bold py-3 px-6 rounded shadow-lg hover:bg-indigo-800 transition duration-300">Get Started</Button>
         </Link>
       </div>
     </div>
