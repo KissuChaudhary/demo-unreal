@@ -24,7 +24,7 @@ export default async function Index() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": "UnrealShot AI - Best AI Headshot Generator | Create Most Realistic Headshots",
+          "name": "#1 AI Headshot Generator | Create Most Realistic Headshots with Unrealshot AI",
           "description": "Create professional, high-quality AI-generated headshots in minutes with UnrealShot AI, our easy-to-use AI headshot generator. Perfect for businesses and individuals looking to elevate their profile with stunning, custom portraits.",
           "url": "https://www.unrealshot.com",
           "isPartOf": {
@@ -44,7 +44,7 @@ export default async function Index() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "UnrealShot AI - Best AI Headshot Generator | Create Most Realistic Headshots",
+          "name": "#1 AI Headshot Generator | Create Most Realistic Headshots with Unrealshot AI",
           "url": "https://www.unrealshot.com",
           "applicationCategory": "PhotoEditing",
           "operatingSystem": "All",
