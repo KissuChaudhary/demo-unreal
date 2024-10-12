@@ -158,7 +158,7 @@ const FAQSection: React.FC = () => {
                 <Camera className="w-6 h-6 mr-3 text-indigo-600" />
                 <span className="text-md font-semibold">Starting at just $5.49 for 6 headshots</span>
               </div>
-              <a href="/login" className="inline-flex items-center justify-center bg-indigo-800 text-white font-bold py-2 px-4 rounded-lg text-lg shadow-lg hover:bg-indigo-700 transition-all duration-300 group">
+              <a href="/login" className="inline-flex items-center justify-center bg-indigo-900 text-white font-bold py-2 px-4 rounded text-lg shadow-lg hover:bg-indigo-800 transition-all duration-300 group">
                 Get Your AI Headshot
                 <Sparkles className="ml-2 group-hover:rotate-12 transition-transform duration-300" />
               </a>
