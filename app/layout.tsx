@@ -116,7 +116,7 @@ export default function RootLayout({ children }: any) {
             <Navbar />
           </Suspense>
         </section>
-        <main className="flex-grow items-center pt-16">
+        <main className="flex-grow items-center pt-4">
           {children}
         </main>
         <Footer />
