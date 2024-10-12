@@ -8,14 +8,14 @@ import NextTopLoader from "nextjs-toploader";
 import Script from 'next/script';
 
 export const metadata = {
-  title: "#1 AI Headshot Generator | Create Most Realistic Professional Headshots with Unrealshot AI",
+  title: "#1 AI Headshot Generator | Create Most Realistic Headshots with Unrealshot AI",
   description: "Create professional, high-quality AI-generated headshots in minutes with UnrealShot AI, our easy-to-use AI headshot generator. Perfect for businesses and individuals looking to elevate their profile with stunning, custom portraits.",
   keywords: "AI headshots, AI headshot generator, Free AI headshot generator, headshot maker, professional headshot, online headshot, AI-powered headshot, professional headshots, resume photos, LinkedIn profile photos",
   authors: [{ name: "UnrealShot AI" }],
   robots: "index, follow",
   viewport: "width=device-width, initial-scale=1.0",
   openGraph: {
-    title: "UnrealShot AI - Best AI Headshot Generator | Create Most Realistic Professional Headshots",
+    title: "#1 AI Headshot Generator | Create Most Realistic Headshots with Unrealshot AI",
     description: "Create professional, high-quality AI-generated headshots in minutes with UnrealShot AI, our easy-to-use AI headshot generator. Perfect for businesses and individuals looking to elevate their profile with stunning, custom portraits.",
     url: "https://www.unrealshot.com",
     siteName: "UnrealShot AI",
@@ -25,7 +25,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "UnrealShot AI - Best AI Headshot Generator | Create Most Realistic Professional Headshots",
+    title: "#1 AI Headshot Generator | Create Most Realistic Headshots with Unrealshot AI",
     description: "Create professional, high-quality AI-generated headshots in minutes with UnrealShot AI, our easy-to-use AI headshot generator. Perfect for businesses and individuals looking to elevate their profile with stunning, custom portraits.",
     images: ["/assets/ui/1.png"],
   },
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: any) {
           {JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "UnrealShot AI - Best AI Headshot Generator",
+  "name": "#1 AI Headshot Generator | Create Most Realistic Headshots with Unrealshot AI",
   "url": "https://www.unrealshot.com",
   "mainEntity": [
     {
