@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import NextTopLoader from "nextjs-toploader";
 import Script from 'next/script';
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata = {
   title: "#1 AI Headshot Generator | Create Most Realistic Headshots with Unrealshot AI",
@@ -122,6 +123,7 @@ export default function RootLayout({ children }: any) {
         <Footer />
         <Toaster />
         <Analytics />
+        <ScrollToTop />
       </body>
     </html>
   );
