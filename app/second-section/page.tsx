@@ -206,8 +206,8 @@ const ComparisonPage = () => {
           </span>
           <ArrowDownRight size={24} className="text-indigo-600 mb-4" />
           <Link href="/login">
-            <button className="bg-indigo-900 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-indigo-800 transition duration-300">
-              Create your AI headshots Now
+            <button className="bg-indigo-900 text-white font-bold py-3 px-6 rounded shadow-lg hover:bg-indigo-800 transition duration-300">
+              Create Your AI Headshots Now
             </button>
           </Link>
         </div>
