@@ -1,8 +1,11 @@
 // app/affiliate/dashboard/page.tsx
-import { supabase } from '@/lib/supabase'
+import { cookies } from 'next/headers'
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 async function getAffiliateStats(affiliateId: string) {
+  const supabase = createServerComponentClient({ cookies })
+  
   const { data: referrals, error: referralsError } = await supabase
     .from('referrals')
     .select('id, status, conversions(amount)')
@@ -21,9 +24,16 @@ async function getAffiliateStats(affiliateId: string) {
 }
 
 export default async function AffiliateDashboard() {
-  // In a real application, you would get the affiliate ID from the authenticated user
-  const affiliateId = 'example-affiliate-id'
-  const stats = await getAffiliateStats(affiliateId)
+  const supabase = createServerComponentClient({ cookies })
+  
+  // Get the authenticated user
+  const { data: { user } } = await supabase.auth.getUser()
+
+  if (!user) {
+    return <div>Please log in to view your affiliate dashboard</div>
+  }
+
+  const stats = await getAffiliateStats(user.id)
 
   if (!stats) {
     return <div>Error loading affiliate stats</div>
@@ -40,7 +50,6 @@ export default async function AffiliateDashboard() {
           <CardContent>
             <p className="text-3xl font-bold">{stats.totalReferrals}</p>
           </CardContent>
-        
         </Card>
         <Card>
           <CardHeader>
