@@ -40,10 +40,7 @@ const TermsOfService: React.FC = () => {
         })}
       </Script>
     <div className="flex-grow pb-6">
-      <Head>
-        <title>Terms of Service | Unrealshot AI</title>
-        <meta name="description" content="Read the comprehensive terms of service for Unrealshot AI, the AI headshot generator platform." />
-      </Head>
+    
       <main className="max-w-[80rem] px-4 sm:px-6 lg:px-8 mx-auto">
         <h1 className="text-main text-6xl font-bold mx-auto mb-10 text-indigo-900 lg:mb-14">
           Terms of Service
