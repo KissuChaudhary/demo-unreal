@@ -13,10 +13,7 @@ export const metadata = {
 const PrivacyPolicy: React.FC = () => {
   return (
         <>  
-     <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-      </Head>
+    
           
              {/* Structured Data Schema */}
       <Script id="schema-about-us" type="application/ld+json">
@@ -38,10 +35,10 @@ const PrivacyPolicy: React.FC = () => {
           }
         })}
       </Script>
-    <div className="flex-grow pb-6">
+    <div className="flex-grow py-8 pb-6">
       <Head>
-        <title>Privacy Policy | Unrealshot AI Headshot Generator</title>
-        <meta name="description" content="Privacy policy for Unrealshot AI, outlining data collection, use, and protection." />
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
       </Head>
       <main className="max-w-[80rem] px-4 sm:px-6 lg:px-8 mx-auto">
         <h1 className="text-main text-6xl font-bold mx-auto mb-10 text-indigo-900 lg:mb-14">
