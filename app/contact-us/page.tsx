@@ -38,7 +38,7 @@ const ContactPage: React.FC = () => {
         })}
       </Script>
 
-      <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen py-16 px-4 py-8 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-main text-6xl font-bold text-center text-indigo-900 mb-4">
