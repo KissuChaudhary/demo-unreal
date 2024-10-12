@@ -36,7 +36,7 @@ const LaunchPriceBanner = () => {
             </div>
             <span className="absolute left-[-15px] top-0 line-through text-indigo-400 text-lg font-semibold">$21.99</span>
           </div>
-          <span className="text-indigo-400 text-xs ml-1 font-semibold">    / 04 Credits</span>
+          <span className="text-indigo-400 text-xs ml-1 font-semibold">    / 32 Headshots</span>
         </div>  
       </div>
     </div>
