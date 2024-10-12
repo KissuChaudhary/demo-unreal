@@ -81,7 +81,7 @@ const FourthSection: React.FC = () => {
       </div>
       <div className="text-center relative">
         <div className="inline-block relative">
-          <a href="/get-credits" className="flex items-center justify-center bg-indigo-800 text-white font-bold py-2 px-4 rounded text-lg shadow-lg hover:bg-indigo-700 transition-all duration-300 group">
+          <a href="/get-credits" className="flex items-center justify-center bg-indigo-900 text-white font-bold py-2 px-4 rounded text-lg shadow-lg hover:bg-indigo-800 transition-all duration-300 group">
                 Choose Your Headshots Package
                 <Sparkles className="ml-2 group-hover:rotate-12 transition-transform duration-300" />
               </a>
