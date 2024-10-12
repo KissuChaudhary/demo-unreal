@@ -42,7 +42,7 @@ const AboutUs: React.FC = () => {
 
 
       
-    <div className="flex-grow pb-6">
+    <div className="flex-grow py-8 pb-6">
 
       <main className="max-w-[80rem] px-4 sm:px-6 lg:px-8 mx-auto">
         <h1 className="text-main text-6xl font-bold mx-auto mb-10 text-indigo-900 lg:mb-14">
