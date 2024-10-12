@@ -57,7 +57,7 @@ const FirstSection = () => {
   }, []);
 
   return (
-    <section className="md:pb-20 pb-10 space-y-10">
+    <section className="py-12 md:pb-20 pb-10 space-y-10">
       {/* Text Section */}
       <div className="container mx-auto text-center px-1.5">
         <div className="flex justify-center hero-bg">
