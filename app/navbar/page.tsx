@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+'use client'
 
+import React, { useState, useEffect } from 'react';
 import ActionButtons from "./action-buttons";
 import Logo from "./logo";
 import { NavigationMenuBar } from "./navigation-bar";
@@ -21,6 +22,8 @@ import { Database } from "@/types/supabase";
 import ClientSideCredits from "../../components/realtime/ClientSideCredits";
 import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar";
 import { User, CreditCard, LogOut, Home, LayoutDashboard } from "lucide-react";
+import { useUser } from '@supabase/auth-helpers-react';
+
 
 export const dynamic = "force-dynamic";
 
@@ -44,10 +47,31 @@ export default async function Navbar() {
     .eq("user_id", user?.id ?? "")
     .single();
 
+
+  export default function Navbar() {
+  const [isSticky, setIsSticky] = useState(false);
+  const { user } = useUser();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+    
   return (
     <>
       {!user && <LaunchPriceBanner />}
-    <div className="border-b">
+    <div className={`border-b ${isSticky ? 'sticky top-0 z-50 bg-background shadow-md' : ''}`}>
       <div className="flex justify-between items-center h-16 px-4 py-2 max-w-full md:max-w-[1240px] mx-auto">
         <Link href="/">
           <Logo />
