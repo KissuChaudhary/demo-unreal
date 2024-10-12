@@ -18,7 +18,7 @@ const pricingOptions = [
     price: "$5.49",
     features: [
       "01 Credit",
-      "06 headshots",
+      "08 headshots",
       "90 min turnaround time"
     ],
     popular: false,
@@ -31,7 +31,7 @@ const pricingOptions = [
     discount: "-30% Launch Price",
     features: [
       "04 Credits",
-      "24 headshots",
+      "32 headshots",
       "Priority Support",
       "90 min turnaround time"
     ],
@@ -45,7 +45,7 @@ const pricingOptions = [
     discount: "-15%",
     features: [
       "09 Credits",
-      "54 headshots",
+      "72 headshots",
       "Priority Support",
       "90 min turnaround time"
     ],
