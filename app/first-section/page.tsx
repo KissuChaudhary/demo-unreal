@@ -76,7 +76,7 @@ const FirstSection = () => {
   <UserAvatars />
         <div className="flex gap-4 justify-center pt-10">
           <Link href="/login">
-            <button className="flex items-center bg-indigo-900 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-indigo-800 transition duration-300">  <svg
+            <button className="flex items-center bg-indigo-900 text-white font-bold py-3 px-6 rounded shadow-lg hover:bg-indigo-800 transition duration-300">  <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 width="24"
@@ -92,7 +92,7 @@ const FirstSection = () => {
                   d="M4.5,22v-5 M4.5,7V2 M2,4.5h5 M2,19.5h5 M13,3l-1.7,4.5c-0.3,0.7-0.4,1.1-0.6,1.4c-0.2,0.3-0.4,0.5-0.7,0.7C9.6,9.8,9.2,10,8.5,10.3L4,12l4.5,1.7c0.7,0.3,1.1,0.4,1.4,0.6c0.3,0.2,0.5,0.4,0.7,0.7c0.2,0.3,0.4,0.7,0.6,1.4L13,21l1.7-4.5c0.3-0.7,0.4-1.1,0.6-1.4c0.2-0.3,0.4-0.5,0.7-0.7c0.3-0.2,0.7-0.4,1.4-0.6L22,12l-4.5-1.7c-0.7-0.3-1.1-0.4-1.4-0.6c-0.3-0.2-0.5-0.4-0.7-0.7c-0.2-0.3-0.4-0.7-0.6-1.4L13,3z"
                 />
               </svg>
-              Generate AI headshots
+              Create AI Headshots
             </button>
           </Link>
         </div>
